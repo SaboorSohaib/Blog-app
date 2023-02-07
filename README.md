@@ -177,6 +177,9 @@ You can deploy this project using:
 
 > Describe 1 - 3 features you will add to the project.
 
+[] - Add basic UI.
+[] - Connect to the Database. 
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
