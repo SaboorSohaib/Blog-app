@@ -95,6 +95,8 @@ After you're finished please remove all the comments and instructions!
 ### Key Features <a name="key-features"></a>
 
 > Describe between 1-3 key features of the application.
+- This is Rails based project.
+- I used Rails migration to build the schema.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -129,20 +131,17 @@ In order to run this project you need:
 Clone this repository to your desired folder:
  - mkdir my-folder
  - cd my-folder
-
  - git clone [(git@github.com:SaboorSohaib/Hello-Rails.git)]
-
-
 
 ### Usage
 
 To run the project, execute the following command:
 
-- ./main.rb.
+- rails server.
 
 ### Run tests
 
-- rspect.
+- rspec.
 
 ### Check Linter 
 
