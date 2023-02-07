@@ -27,7 +27,7 @@ After you're finished please remove all the comments and instructions!
   <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
   <br/>
 
-  <h3><b>Hello Rails</b></h3>
+  <h3><b>Blog App</b></h3>
 
 </div>
 
@@ -37,7 +37,7 @@ After you're finished please remove all the comments and instructions!
 
 - [📗 Table of Contents](#-table-of-contents)
 
-- [📖 Hello-Rails](#-hello-rails)
+- [📖 Blog App](#-Blog App)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
