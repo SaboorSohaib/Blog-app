@@ -61,7 +61,7 @@ After you're finished please remove all the comments and instructions!
 
 # 📖 Ruby Capstone project <a name="about-project"></a>
 
-> Hello Rails is my first rails project.
+> Blog is a rails app. In this app we can add blog, comments to the blog and likes posts.
 
 ## 🛠 Built With <a name="built-with"></a>
 
