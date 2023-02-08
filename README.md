@@ -179,6 +179,7 @@ You can deploy this project using:
 
 [] - Add basic UI.
 [] - Connect to the Database. 
+[] - Add Authentication.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
