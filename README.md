@@ -90,8 +90,9 @@ After you're finished please remove all the comments and instructions!
 
 ### Key Features <a name="key-features"></a>
 
-- This is Rails based Project.
-- I used Rails migration to build the schema.
+- We can add, remove, update and display blogs.
+- It has user authentication.
+- It is well designed.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -122,6 +123,8 @@ In order to run this project you need:
 ### Setup
 
 Clone this repository to your desired folder:
+
+```
  - mkdir my-folder
  - cd my-folder
  - git clone git@github.com:SaboorSohaib/Blog-app.git
@@ -129,7 +132,8 @@ Clone this repository to your desired folder:
  - bundle install
  - rails db:create
  - rails db:migrate
-
+ 
+```
 ### Usage
 
 To run the project, execute the following command:
@@ -168,9 +172,9 @@ To run the project, execute the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [] - **Add basic UI.**
-- [] - **Connect to the Database.** 
-- [] - **Add Authentication.**
+- **Enhance design.**
+- **Connect to the Database.** 
+- **Add API endpoits.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
