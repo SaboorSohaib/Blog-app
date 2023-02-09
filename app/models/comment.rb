@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
-  belongs_to :user, foreign_key: 'users_id'
-  belongs_to :user, foreign_key: 'posts_id'
+  belongs_to :user, class_name: 'User'
+  belongs_to :user, class_name: 'User'
   after_save :update_comments_counter
 
   def update_comments_counter
