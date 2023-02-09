@@ -90,7 +90,6 @@ After you're finished please remove all the comments and instructions!
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
 - This is Rails based Project.
 - I used Rails migration to build the schema.
 
@@ -101,7 +100,6 @@ After you're finished please remove all the comments and instructions!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
 
 - [Live Demo Link Comming Soon!]
 
@@ -111,7 +109,6 @@ After you're finished please remove all the comments and instructions!
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
 
 To get a local copy up and running, follow these steps.
 
@@ -127,14 +124,17 @@ In order to run this project you need:
 Clone this repository to your desired folder:
  - mkdir my-folder
  - cd my-folder
- - git clone [(git@github.com:SaboorSohaib/Blog-app.git)]
+ - git clone git@github.com:SaboorSohaib/Blog-app.git
+ - cd Blog-app
+ - bundle install
+ - rails db:create
+ - rails db:migrate
 
 ### Usage
 
 To run the project, execute the following command:
 
-- rails db:create
-- rails db:migrate
+- rails server
 
 ### Run tests
 
@@ -146,8 +146,6 @@ To run the project, execute the following command:
 
 ### Deployment
 
-You can deploy this project using:
-
 - Netlify
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -155,8 +153,6 @@ You can deploy this project using:
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
-
-> Mention all of the collaborators of this project.
 
 👤 **Abdul Saboor Sohaib**
 
@@ -171,8 +167,6 @@ You can deploy this project using:
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
-
-> Describe 1 - 3 features you will add to the project.
 
 - [] - **Add basic UI.**
 - [] - **Connect to the Database.** 
@@ -194,8 +188,6 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
 If you like this project you can fork it.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -203,8 +195,6 @@ If you like this project you can fork it.
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-> Give credit to everyone who inspired your codebase.
 
 I would like to thank... <a href="https://www.microverse.org/?gclid=CjwKCAiArY2fBhB9EiwAWqHK6s-2-x4d57Pghz47XT1BgsYuF81ZprM-k-IwzI0_L96nV0SQ93A8ExoCVnQQAvD_BwE" title="planet icons">Microvers for giving me this opportunity to build this project</a>
 
