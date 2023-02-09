@@ -728,3 +728,99 @@ Migrating to FixColumnNameComments (20230208045157)
   [1m[36mTRANSACTION (24.8ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (12.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (57.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RenameColumnNamePosts (20230208135441)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (168.8ms)[0m  [1m[35mALTER TABLE "posts" RENAME COLUMN "author_id" TO "users_id"[0m
+  [1m[35m (115.5ms)[0m  [1m[35mALTER INDEX "index_posts_on_author_id" RENAME TO "index_posts_on_users_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208135441"]]
+  [1m[36mTRANSACTION (37.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (102.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RenameColumnNameComments (20230208135613)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "comments" RENAME COLUMN "author_id" TO "users_id"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER INDEX "index_comments_on_author_id" RENAME TO "index_comments_on_users_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208135613"]]
+  [1m[36mTRANSACTION (25.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (33.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "photo", "bio", "posts_counter", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tom"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["bio", "Teacher from Mexico."], ["posts_counter", nil], ["created_at", "2023-02-09 05:50:35.422391"], ["updated_at", "2023-02-09 05:50:35.422391"]]
+  [1m[36mTRANSACTION (25.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Count (75.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (110.9ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "comments_counter", "likes_counter", "created_at", "updated_at", "users_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Hello"], ["text", "This is my first post"], ["comments_counter", nil], ["likes_counter", nil], ["created_at", "2023-02-09 05:51:20.893161"], ["updated_at", "2023-02-09 05:51:20.893161"], ["users_id", 1]]
+  [1m[36mTRANSACTION (25.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "comments_counter", "likes_counter", "created_at", "updated_at", "users_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Hi"], ["text", "This is my second post"], ["comments_counter", nil], ["likes_counter", nil], ["created_at", "2023-02-09 05:51:32.709557"], ["updated_at", "2023-02-09 05:51:32.709557"], ["users_id", 1]]
+  [1m[36mTRANSACTION (137.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "comments_counter", "likes_counter", "created_at", "updated_at", "users_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Good Moring"], ["text", "This is my third post"], ["comments_counter", nil], ["likes_counter", nil], ["created_at", "2023-02-09 05:51:44.307883"], ["updated_at", "2023-02-09 05:51:44.307883"], ["users_id", 1]]
+  [1m[36mTRANSACTION (11.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("title", "text", "comments_counter", "likes_counter", "created_at", "updated_at", "users_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Good Afternoon"], ["text", "This is my fourth post"], ["comments_counter", nil], ["likes_counter", nil], ["created_at", "2023-02-09 05:52:00.328438"], ["updated_at", "2023-02-09 05:52:00.328438"], ["users_id", 1]]
+  [1m[36mTRANSACTION (59.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPost Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Create (41.8ms)[0m  [1m[32mINSERT INTO "comments" ("text", "created_at", "updated_at", "users_id", "posts_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Hi Tom!"], ["created_at", "2023-02-09 05:52:20.423589"], ["updated_at", "2023-02-09 05:52:20.423589"], ["users_id", 1], ["posts_id", 3]]
+  [1m[36mTRANSACTION (57.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Create (1.7ms)[0m  [1m[32mINSERT INTO "comments" ("text", "created_at", "updated_at", "users_id", "posts_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Hi Sohaib!"], ["created_at", "2023-02-09 05:52:35.095425"], ["updated_at", "2023-02-09 05:52:35.095425"], ["users_id", 1], ["posts_id", 3]]
+  [1m[36mTRANSACTION (25.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Create (0.8ms)[0m  [1m[32mINSERT INTO "comments" ("text", "created_at", "updated_at", "users_id", "posts_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Hi Ali!"], ["created_at", "2023-02-09 05:52:43.983503"], ["updated_at", "2023-02-09 05:52:43.983503"], ["users_id", 1], ["posts_id", 3]]
+  [1m[36mTRANSACTION (135.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Create (1.6ms)[0m  [1m[32mINSERT INTO "comments" ("text", "created_at", "updated_at", "users_id", "posts_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Hi Hemat!"], ["created_at", "2023-02-09 05:52:52.872131"], ["updated_at", "2023-02-09 05:52:52.872131"], ["users_id", 1], ["posts_id", 3]]
+  [1m[36mTRANSACTION (133.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Create (0.9ms)[0m  [1m[32mINSERT INTO "comments" ("text", "created_at", "updated_at", "users_id", "posts_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Hi Omar!"], ["created_at", "2023-02-09 05:53:02.124644"], ["updated_at", "2023-02-09 05:53:02.124644"], ["users_id", 1], ["posts_id", 3]]
+  [1m[36mTRANSACTION (23.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Create (1.7ms)[0m  [1m[32mINSERT INTO "comments" ("text", "created_at", "updated_at", "users_id", "posts_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["text", "Hi Abid!"], ["created_at", "2023-02-09 05:53:11.344826"], ["updated_at", "2023-02-09 05:53:11.344826"], ["users_id", 1], ["posts_id", 3]]
+  [1m[36mTRANSACTION (24.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mComment Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[36mUser Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mPost Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mPost Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mUser Count (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mComment Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (70.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChnageColumnName (20230209073855)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (82.3ms)[0m  [1m[35mALTER TABLE "posts" RENAME COLUMN "users_id" TO "author_id"[0m
+  [1m[35m (40.8ms)[0m  [1m[35mALTER INDEX "index_posts_on_users_id" RENAME TO "index_posts_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230209073855"]]
+  [1m[36mTRANSACTION (147.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (35.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeColumnName (20230209082007)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "likes" RENAME COLUMN "users_id" TO "author_id"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER INDEX "index_likes_on_users_id" RENAME TO "index_likes_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230209082007"]]
+  [1m[36mTRANSACTION (134.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeColumnNames (20230209082138)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "comments" RENAME COLUMN "users_id" TO "author_id"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER INDEX "index_comments_on_users_id" RENAME TO "index_comments_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230209082138"]]
+  [1m[36mTRANSACTION (149.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
