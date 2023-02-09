@@ -24,9 +24,6 @@ After you're finished please remove all the comments and instructions!
 
 <div align="center">
 
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
-  <br/>
-
   <h3><b>Blog App</b></h3>
 
 </div>
@@ -63,12 +60,40 @@ After you're finished please remove all the comments and instructions!
 
 > Blog is a rails app. In this app we can add blog, comments to the blog and likes posts.
 
+## 🛠 Built With <a name="built-with"></a>
+
+### Tech Stack <a name="tech-stack"></a>
+
+> Describe the tech stack and include only the relevant sections that apply to your project.
+
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li>Ruby on Rails</li>
+  </ul>
+</details>
+
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li>Ruby on Rails</li>
+  </ul>
+</details>
+
+<details>
+<summary>Database</summary>
+  <ul>
+    <li>Postgresql</li>
+  </ul>
+</details>
+
+
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
 > Describe between 1-3 key features of the application.
-- This is Rails based project.
+- This is Rails based Project.
 - I used Rails migration to build the schema.
 
 
@@ -104,13 +129,14 @@ In order to run this project you need:
 Clone this repository to your desired folder:
  - mkdir my-folder
  - cd my-folder
- - git clone [(git@github.com:SaboorSohaib/Hello-Rails.git)]
+ - git clone [(git@github.com:SaboorSohaib/Blog-app.git)]
 
 ### Usage
 
 To run the project, execute the following command:
 
-- rails server.
+- rails db:create
+- rails db:migrate
 
 ### Run tests
 
@@ -150,9 +176,9 @@ You can deploy this project using:
 
 > Describe 1 - 3 features you will add to the project.
 
-[] - Add basic UI.
-[] - Connect to the Database. 
-[] - Add Authentication.
+- [] - **Add basic UI.**
+- [] - **Connect to the Database.** 
+- [] - **Add Authentication.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -182,7 +208,7 @@ If you like this project you can fork it.
 
 > Give credit to everyone who inspired your codebase.
 
-I would like to thank... <a href="https://www.flaticon.com/free-icons/planet" title="planet icons">Planet icons created by Freepik - Flaticon</a>
+I would like to thank... <a href="https://www.microverse.org/?gclid=CjwKCAiArY2fBhB9EiwAWqHK6s-2-x4d57Pghz47XT1BgsYuF81ZprM-k-IwzI0_L96nV0SQ93A8ExoCVnQQAvD_BwE" title="planet icons">Microvers for giving me this opportunity to build this project</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -192,7 +218,5 @@ I would like to thank... <a href="https://www.flaticon.com/free-icons/planet" ti
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
