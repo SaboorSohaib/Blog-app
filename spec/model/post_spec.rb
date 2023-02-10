@@ -37,4 +37,8 @@ RSpec.describe Post, type: :model do
     subject.likes_counter = 2.5
     expect(subject).to_not be_valid
   end
+
+  it ' Should test likes_counter to be >= 0' do
+    expect(subject.likes_counter).to be >= 0
+  end
 end
