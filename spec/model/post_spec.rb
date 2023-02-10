@@ -18,4 +18,9 @@ RSpec.describe Post, type: :model do
     subject.comments_counter = 'b'
     expect(subject).to_not be_valid
   end
+
+  it 'The comments_counter should be greater than or equal to zero' do
+    subject.comments_counter = -8
+    expect(subject).to_not be_valid
+  end
 end
