@@ -23,4 +23,8 @@ RSpec.describe Post, type: :model do
     subject.comments_counter = -8
     expect(subject).to_not be_valid
   end
+
+  it ' Should test comments_counter to be >= 0' do
+    expect(subject.comments_counter).to be >= 0
+  end
 end
