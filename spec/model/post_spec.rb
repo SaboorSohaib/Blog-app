@@ -13,4 +13,9 @@ RSpec.describe Post, type: :model do
     subject.title = 'J' * 280
     expect(subject).to_not be_valid
   end
+
+  it 'The comments_counter should be integer' do
+    subject.comments_counter = 'b'
+    expect(subject).to_not be_valid
+  end
 end
