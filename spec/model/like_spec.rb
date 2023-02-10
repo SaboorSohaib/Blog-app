@@ -6,23 +6,23 @@ RSpec.describe Like, type: :model do
     before { subject.save }
 
     it 'The author_id should be number' do
-        subject.author_id = 'aaa'
-        expect(subject).to_not be_valid
+      subject.author_id = 'aaa'
+      expect(subject).to_not be_valid
     end
 
     it 'The author_id should be integer' do
-        id = subject.author_id = 2
-        expect(id).to be == 2
+      id = subject.author_id = 5
+      expect(id).to be == 5
     end
 
     it 'The posts_id should be number' do
-        subject.posts_id = 'bbb'
-        expect(subject).to_not be_valid
+      subject.posts_id = 'bbb'
+      expect(subject).to_not be_valid
     end
 
     it 'The posts_id should be integer' do
-        id = subject.posts_id = 2
-        expect(id).to be == 2
+      id = subject.posts_id = 5
+      expect(id).to be == 5
     end
   end
 end
