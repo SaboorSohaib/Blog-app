@@ -19,5 +19,10 @@ RSpec.describe Like, type: :model do
         subject.posts_id = 'bbb'
         expect(subject).to_not be_valid
     end
+
+    it 'The posts_id should be integer' do
+        id = subject.posts_id = 2
+        expect(id).to be == 2
+    end
   end
 end
