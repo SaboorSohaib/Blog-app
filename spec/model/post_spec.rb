@@ -27,4 +27,9 @@ RSpec.describe Post, type: :model do
   it ' Should test comments_counter to be >= 0' do
     expect(subject.comments_counter).to be >= 0
   end
+
+  it 'The likes_counter should be integer' do
+    subject.likes_counter = 'c'
+    expect(subject).to_not be_valid
+  end
 end
