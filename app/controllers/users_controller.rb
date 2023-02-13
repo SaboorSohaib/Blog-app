@@ -7,5 +7,6 @@ class UsersController < ApplicationController
   end
 
   def posts
+    @id = params[:user_id]
   end
 end
