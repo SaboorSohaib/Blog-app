@@ -3,6 +3,9 @@ require 'rails_helper'
 RSpec.describe 'UsersController', type: :request do
   describe 'GET users_controller#index' do
     before(:example) { get '/users' } # get(:index)
+    it 'is a success' do
+      expect(response).to have_http_status(:ok)
+    end
     
   end
 
