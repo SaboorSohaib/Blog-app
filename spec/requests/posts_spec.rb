@@ -24,7 +24,7 @@ RSpec.describe 'PostsController', type: :request do
       expect(response).to render_template(:show)
     end
     it "renders 'index' body" do
-      expect(response.body).to include('Showing all posts for user with id:')
+      expect(response.body).to include('Showing posts with id:')
     end
     
   end
