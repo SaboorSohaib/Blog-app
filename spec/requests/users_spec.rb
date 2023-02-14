@@ -22,6 +22,8 @@ RSpec.describe 'UsersController', type: :request do
     it "renders 'index' template" do
       expect(response).to render_template(:show)
     end
-  
+    it "renders 'index' body" do
+      expect(response.body).to include('Hello user with id:')
+    end
   end
 end
