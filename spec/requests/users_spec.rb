@@ -9,7 +9,9 @@ RSpec.describe 'UsersController', type: :request do
     it "renders 'index' template" do
       expect(response).to render_template(:index)
     end
-    
+    it "renders 'index' body" do
+      expect(response.body).to include('List All Users')
+    end
   end
 
   describe 'GET users_controller#show' do
