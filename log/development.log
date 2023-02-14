@@ -827,3 +827,18 @@ Migrating to ChangeColumnNames (20230209082138)
   [1m[36mPost Count (96.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
   [1m[36mUser Count (25.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
   [1m[36mComment Count (69.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+Started GET "/" for 127.0.0.1 at 2023-02-14 14:07:43 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (135.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/sohaib/.rvm/gems/ruby-3.2.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/sohaib/.rvm/gems/ruby-3.2.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 56.9ms | Allocations: 462)
+Completed 200 OK in 94ms (Views: 61.2ms | ActiveRecord: 0.0ms | Allocations: 3173)
+
+
+Started GET "/" for ::1 at 2023-02-14 14:08:04 +0430
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/sohaib/.rvm/gems/ruby-3.2.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/sohaib/.rvm/gems/ruby-3.2.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.9ms | Allocations: 257)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 800)
+
+
