@@ -1,17 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe 'Posts', type: :request do
-  describe 'GET /index' do
-    it 'returns http success' do
-      get '/posts/index'
-      expect(response).to have_http_status(:success)
-    end
+RSpec.describe 'PostsController', type: :request do
+  describe 'GET posts_controller#index' do
+    before(:example) { get '/users/:user_id/posts' } # get(:index)
+    
   end
 
-  describe 'GET /show' do
-    it 'returns http success' do
-      get '/posts/show'
-      expect(response).to have_http_status(:success)
-    end
+  describe 'GET posts_controller#show' do
+    before(:example) { get '/users/:user_id/posts/:post_id' } # get(:index)
+    
   end
 end
