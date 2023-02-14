@@ -9,6 +9,9 @@ RSpec.describe 'PostsController', type: :request do
     it "renders 'index' template" do
       expect(response).to render_template(:index)
     end
+    it "renders 'index' body" do
+      expect(response.body).to include('Showing all posts for user with id:')
+    end
     
   end
 
@@ -20,9 +23,7 @@ RSpec.describe 'PostsController', type: :request do
     it "renders 'show' template" do
       expect(response).to render_template(:show)
     end
-    it "renders 'index' body" do
-      expect(response.body).to include('Showing all posts for user with id:')
-    end
+  
     
   end
 end
