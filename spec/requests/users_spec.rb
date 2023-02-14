@@ -11,6 +11,9 @@ RSpec.describe 'UsersController', type: :request do
 
   describe 'GET users_controller#show' do
     before(:example) { get '/users/:user_id' } # get(:show)
+    it 'is a success' do
+      expect(response).to have_http_status(:ok)
+    end
   
   end
 end
