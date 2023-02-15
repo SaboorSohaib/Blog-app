@@ -22,4 +22,7 @@
       </div>
     <%end%>
   </div>
+  <%= link_to "/users/#{@user.id}/posts" do %>
+    <button type="button" class="seeAllPosts">See all posts</button>
+  <% end %>
 </section>

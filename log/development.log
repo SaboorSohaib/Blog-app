@@ -975,3 +975,98 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.4ms | Allocations: 2848)
 
 
+Started GET "/" for 127.0.0.1 at 2023-02-15 19:06:48 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 24ms (ActiveRecord: 6.5ms | Allocations: 4375)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-15 19:08:22 +0430
+Processing by UsersController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (15.4ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  Rendered users/show.html.erb within layouts/application (Duration: 47.4ms | Allocations: 7858)
+  Rendered layout layouts/application.html.erb (Duration: 48.0ms | Allocations: 7947)
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 24.8ms | Allocations: 10393)
+
+
+  
+ActionView::Template::Error (undefined method `photo' for #<ActiveRecord::Relation [#<User id: 1, name: "Tom", photo: "https://unsplash.com/photos/F_-0BxGuVvo", bio: "Teacher from Mexico.", posts_counter: nil, created_at: "2023-02-09 05:50:35.422391000 +0000", updated_at: "2023-02-09 05:50:35.422391000 +0000">]>):
+    1: <section>
+    2:   <div class="user-info">
+    3:     <div class="user-img">
+    4:         <img src=<%=@user.photo%>>
+    5:     </div>
+    6:     <div class="user-content">
+    7:         <span><%=@user.name%></span>
+  
+app/views/users/show.html.erb:4
+Started GET "/" for 127.0.0.1 at 2023-02-15 19:11:09 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 10ms (ActiveRecord: 2.9ms | Allocations: 2174)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-15 19:16:36 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 487)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-15 19:16:40 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 2ms (ActiveRecord: 0.0ms | Allocations: 493)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-15 19:19:22 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 14ms (ActiveRecord: 3.4ms | Allocations: 4375)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-15 19:19:51 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 14ms (ActiveRecord: 5.0ms | Allocations: 2175)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-15 19:21:06 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 10ms (ActiveRecord: 4.5ms | Allocations: 2171)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-15 19:21:09 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 493)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
