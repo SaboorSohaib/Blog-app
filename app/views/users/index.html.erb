@@ -1,8 +1,8 @@
-<div>
+<section class="container">
     <%@users.each do |user| %>
-     <div>
+     <div class="user-info">
         <%=user.photo%>
         <b>User Name<b><%=user.name%><br>
         <b>Number of Posts<b><%=user.posts_counter%><br>
      </div>
-</div>
+</section>
