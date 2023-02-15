@@ -1,9 +1,13 @@
 <section class="container">
     <%@users.each do |user| %>
      <div class="user-info">
-        <%=user.photo%>
-        <b>User Name<b><%=user.name%><br>
-        <b>Number of Posts<b><%=user.posts_counter%><br>
+      <div>
+         <img src=<%= user.photo %> >
+      </div>
+      <div>
+        <span>User Name:</span><%=user.name%><br>
+        <span>Number of Posts:</span><%=user.posts_counter%><br>
+      </div>
      </div>
     <%end%>
 </section>
