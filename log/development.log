@@ -1070,3 +1070,133 @@ Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 493)
 ActiveRecord::RecordNotFound (Couldn't find User without an ID):
   
 app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-15 20:08:49 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+Completed 404 Not Found in 25ms (ActiveRecord: 7.6ms | Allocations: 4375)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/posts_controller.rb:3:in `index'
+Started GET "/" for 127.0.0.1 at 2023-02-15 20:09:33 +0430
+Processing by PostsController#index as HTML
+Completed 404 Not Found in 10ms (ActiveRecord: 4.2ms | Allocations: 2175)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/posts_controller.rb:3:in `index'
+Started GET "/" for 127.0.0.1 at 2023-02-15 20:13:18 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+Completed 404 Not Found in 26ms (ActiveRecord: 6.5ms | Allocations: 4375)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/posts_controller.rb:3:in `index'
+Started GET "/" for 127.0.0.1 at 2023-02-15 20:14:34 +0430
+Processing by PostsController#index as HTML
+Completed 404 Not Found in 10ms (ActiveRecord: 4.2ms | Allocations: 2176)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/posts_controller.rb:4:in `index'
+Started GET "/" for 127.0.0.1 at 2023-02-15 20:14:54 +0430
+Processing by PostsController#index as HTML
+Completed 404 Not Found in 12ms (ActiveRecord: 4.4ms | Allocations: 2229)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/posts_controller.rb:4:in `index'
+Started GET "/" for 127.0.0.1 at 2023-02-15 21:33:43 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 27ms (ActiveRecord: 7.0ms | Allocations: 4375)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-15 21:38:49 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 494)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started POST "/__web_console/repl_sessions/d4b1c172e15cd40201df6582005ecc9f/trace" for 127.0.0.1 at 2023-02-15 21:38:54 +0430
+Started GET "/" for 127.0.0.1 at 2023-02-15 21:41:22 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 33ms (ActiveRecord: 14.3ms | Allocations: 4959)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-15 21:41:26 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 487)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-15 21:45:09 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 487)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-15 21:50:07 +0430
+Processing by UsersController#show as HTML
+Completed 500 Internal Server Error in 4ms (Allocations: 1885)
+
+
+  
+NoMethodError (undefined method `params' for User:Class):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-15 21:50:22 +0430
+Processing by UsersController#show as HTML
+Completed 500 Internal Server Error in 7ms (Allocations: 1929)
+
+
+  
+NoMethodError (undefined method `params' for User:Class):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-15 21:54:00 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 26ms (ActiveRecord: 10.2ms | Allocations: 4881)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-15 21:54:25 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 487)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
