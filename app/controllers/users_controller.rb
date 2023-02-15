@@ -8,6 +8,6 @@ class UsersController < ApplicationController
   end
 
   def posts
-    @id = params[:user_id]
+    @user = User.find(params[:id])
   end
 end
