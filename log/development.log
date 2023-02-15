@@ -1200,3 +1200,41 @@ Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 487)
 ActiveRecord::RecordNotFound (Couldn't find User without an ID):
   
 app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-15 22:00:35 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 24ms (ActiveRecord: 6.2ms | Allocations: 4438)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for ::1 at 2023-02-15 22:00:48 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 494)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-15 22:01:06 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 11ms (ActiveRecord: 4.6ms | Allocations: 2176)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started POST "/__web_console/repl_sessions/65624d3523de4742dfb5478ea681de5a/trace" for 127.0.0.1 at 2023-02-15 22:01:15 +0430
+Started GET "/" for 127.0.0.1 at 2023-02-15 22:03:51 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 11ms (ActiveRecord: 3.7ms | Allocations: 2175)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
