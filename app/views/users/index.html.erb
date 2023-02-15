@@ -1,13 +1,13 @@
 <section class="container">
-    <%@users.each do |user| %>
-     <div class="user-info">
-      <div>
-         <img src=<%= user.photo %> >
+  <%@users.each do |user| %>
+      <div class="user-info">
+          <div>
+              <img src=<%= user.photo %> >
+          </div>
+          <div>
+              <span>User Name:</span><%=user.name%><br>
+              <span>Number of Posts:</span><%=user.posts_counter%><br>
+          </div>
       </div>
-      <div>
-        <span>User Name:</span><%=user.name%><br>
-        <span>Number of Posts:</span><%=user.posts_counter%><br>
-      </div>
-     </div>
-    <%end%>
+  <%end%>
 </section>
