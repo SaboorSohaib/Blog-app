@@ -1,11 +1,25 @@
 <section>
   <div class="user-info">
-    <div>
+    <div class="user-img">
         <img src=<%=@user.photo%>>
     </div>
-    <div>
+    <div class="user-content">
         <span><%=@user.name%></span>
         <span><%=@user.posts_counter%></span>
     </div>
+  </div>
+  <div class="user-bio">
+    <span>Bio:</span>
+    <p><%=@user.bio%></p>
+  </div>
+
+  <div class="posts">
+    <%@user.most_recent_post.each do |post|%>
+      <div class="post-info">
+        <span><%=post.title%></span>
+        <span><%=post.text%></span>
+        <span>Comments:<%=post.comments_counter%> Likes:<%=post.likes_counter%></span>
+      </div>
+    <%end%>
   </div>
 </section>
