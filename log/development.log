@@ -865,3 +865,56 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 0.0ms | Allocations: 800)
 
 
+Started GET "/" for 127.0.0.1 at 2023-02-15 17:18:43 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 32.3ms | Allocations: 2376)
+  Rendered layout layouts/application.html.erb (Duration: 32.8ms | Allocations: 2479)
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 0.0ms | Allocations: 7708)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <section class="container">
+    <%@users.each do |user| %>
+     <div class="user-info">
+        <%=user.photo%>
+        <b>User Name<b><%=user.name%><br>
+        <b>Number of Posts<b><%=user.posts_counter%><br>
+     </div>
+</section>
+):
+1:    <section class="container">
+2:        <%@users.each do |user| %>
+3:         <div class="user-info">
+4:            <%=user.photo%>
+5:            <b>User Name<b><%=user.name%><br>
+6:            <b>Number of Posts<b><%=user.posts_counter%><br>
+7:         </div>
+8:    </section>
+  
+app/views/users/index.html.erb:10: syntax error, unexpected end-of-input
+app/views/users/index.html.erb:10: syntax error, unexpected end-of-input
+app/views/users/index.html.erb:10: syntax error, unexpected end-of-input
+app/views/users/index.html.erb:10: syntax error, unexpected end-of-input
+app/views/users/index.html.erb:10: syntax error, unexpected end-of-input
+app/views/users/index.html.erb:10: syntax error, unexpected end-of-input
+Started GET "/" for 127.0.0.1 at 2023-02-15 17:19:51 +0430
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (92.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 238.9ms | Allocations: 14475)
+  Rendered layout layouts/application.html.erb (Duration: 1147.0ms | Allocations: 85400)
+Completed 200 OK in 1151ms (Views: 980.1ms | ActiveRecord: 169.6ms | Allocations: 86163)
+
+
+Started GET "/" for 127.0.0.1 at 2023-02-15 17:20:26 +0430
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/sohaib/.rvm/gems/ruby-3.2.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/sohaib/.rvm/gems/ruby-3.2.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.7ms | Allocations: 270)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.0ms | Allocations: 886)
+
+
