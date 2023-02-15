@@ -842,3 +842,11 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 800)
 
 
+Started GET "/" for 127.0.0.1 at 2023-02-15 11:05:36 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (47.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/sohaib/.rvm/gems/ruby-3.2.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/sohaib/.rvm/gems/ruby-3.2.0/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 12.7ms | Allocations: 461)
+Completed 200 OK in 89ms (Views: 15.7ms | ActiveRecord: 0.0ms | Allocations: 3169)
+
+
