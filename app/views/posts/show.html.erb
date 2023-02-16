@@ -1,11 +1,11 @@
 <section>
     <div class="post-content">
         <span><%=@post.title%> By <%=@user.name%></span>
-        <span>Comments:<%=@post.comments_counter%> Likes:<%=@post.likes_counter%></span>
+        <div>Comments:<%=@post.comments_counter%></div> <div>Likes:<%=@post.likes_counter%></div>
         <p><%=@post.text%></p>
     </div>
     <div class="post-comment-likes">
-        <%comments = Comments.where(posts_id: @post.id)%>
+        <%comments = Comment.where(posts_id: @post.id)%>
         <%comments.each do |comment|%>
             <span><%user = User.find_by(id: comment.author_id).name%></span>
             <span><%=user%>: <%=comment.text%></span>
