@@ -8,4 +8,18 @@
         <span>Number of Posts:<%=@user.posts_counter%></span>
     </div>
   </div>
+  <%@posts.each do |post|%>
+    <div class="post-content">
+       <%= link_to post.Title, "/users/#{@user.id}/posts/#{post.id}" %>
+       <span><%=post.text%></span>
+       <span>Comments:<%=post.comments_counter%> Likes:<%=post.likes_counter%></span>
+       <div>
+        <%comments = Comments.where(posts_id: post.id)%>
+        <%comments.each do |comment|%>
+        <span><%user = User.find_by(id: comment.author_id).name%></span>
+        <span><%=user%>: <%=comment.text%></span>
+        <%end%>
+       </div>
+    </div>
+  <%end%>
 </section>

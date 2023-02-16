@@ -1238,3 +1238,153 @@ Completed 404 Not Found in 11ms (ActiveRecord: 3.7ms | Allocations: 2175)
 ActiveRecord::RecordNotFound (Couldn't find User without an ID):
   
 app/controllers/users_controller.rb:7:in `show'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Count (298.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mPost Load (33.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mPost Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  [1m[36mComment Count (186.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+Started GET "/" for 127.0.0.1 at 2023-02-16 11:05:24 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (47.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 208ms (ActiveRecord: 76.0ms | Allocations: 4441)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-16 11:05:41 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 12ms (ActiveRecord: 5.0ms | Allocations: 2289)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-16 11:05:44 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 493)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-16 11:05:56 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 13ms (ActiveRecord: 3.7ms | Allocations: 2234)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-16 11:29:09 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 1ms (Allocations: 487)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:7:in `show'
+  [1m[36mUser Load (36.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Count (64.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/" for 127.0.0.1 at 2023-02-16 12:01:44 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 39ms (ActiveRecord: 7.5ms | Allocations: 4375)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:8:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-16 12:02:33 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 22ms (ActiveRecord: 6.4ms | Allocations: 2175)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:8:in `show'
+Started POST "/__web_console/repl_sessions/99a47c8a2072e0cd17bbea34077b9fab/trace" for 127.0.0.1 at 2023-02-16 12:02:38 +0430
+Started GET "/" for 127.0.0.1 at 2023-02-16 12:04:14 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 20ms (ActiveRecord: 3.7ms | Allocations: 2174)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:8:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-16 12:04:19 +0430
+Processing by UsersController#show as HTML
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 487)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:8:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-16 12:31:44 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+Completed 404 Not Found in 27ms (ActiveRecord: 9.0ms | Allocations: 4375)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/posts_controller.rb:3:in `index'
+Started GET "/" for 127.0.0.1 at 2023-02-16 12:32:27 +0430
+Processing by PostsController#index as HTML
+Completed 404 Not Found in 11ms (ActiveRecord: 4.6ms | Allocations: 2176)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/posts_controller.rb:3:in `index'
+Started GET "/" for 127.0.0.1 at 2023-02-16 12:32:41 +0430
+Processing by PostsController#index as HTML
+Completed 404 Not Found in 10ms (ActiveRecord: 4.0ms | Allocations: 2228)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/posts_controller.rb:3:in `index'
+Started GET "/" for 127.0.0.1 at 2023-02-16 12:43:09 +0430
+Processing by PostsController#show as HTML
+Completed 404 Not Found in 27ms (ActiveRecord: 11.1ms | Allocations: 4895)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/posts_controller.rb:8:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-16 12:43:30 +0430
+Processing by PostsController#show as HTML
+Completed 404 Not Found in 14ms (ActiveRecord: 8.7ms | Allocations: 2224)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/posts_controller.rb:8:in `show'
+Started GET "/" for 127.0.0.1 at 2023-02-16 13:47:44 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 404 Not Found in 34ms (ActiveRecord: 9.4ms | Allocations: 6979)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=0):
+  
+app/controllers/users_controller.rb:11:in `show'
