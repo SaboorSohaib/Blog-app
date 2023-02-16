@@ -1,26 +1,25 @@
 <section>
   <div class="user-info">
     <div class="user-img">
-        <img src=<%=@user.photo%>>
+        <img src=<%=@user.photo%> >
     </div>
-    <div class="user-content">
-        <span><%=@user.name%></span>
-        <span>Number of Posts:<%=@user.posts_counter%></span>
+    <div class="user-name">
+        <span><%=@user.name%></span><br>
+    </div>
+    <div class="user-posts">
+         <span>Number of Posts:<%=@user.posts_counter%></span>
     </div>
   </div>
   <div class="user-bio">
     <span>Bio:</span>
-    <p><%=@user.bio%></p>
+    <span><%=@user.bio%></span>
   </div>
- <%end%>
  <div class="posts">
-    <%@user.most_recent_post.each do |post|%>
       <div class="post-info">
-        <span>Post Title:<%=post.title%></span>
-        <span><%=post.text%></span>
-        <span>Comments:<%=post.comments_counter%> Likes:<%=post.likes_counter%></span>
+        <span>Post Title:<%=@posts.title%></span>
+        <span><%=@posts.text%></span><br>
+        <span>Comments:<%=@posts.comments_counter%> Likes:<%=@posts.likes_counter%></span>
       </div>
-    <%end%>
   </div>
   <%= link_to "/users/#{@user.id}/posts" do %>
     <button type="button" class="all-posts">See all posts</button>
