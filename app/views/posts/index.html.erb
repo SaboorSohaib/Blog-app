@@ -13,8 +13,8 @@
   
     <div class="post-content">
        <%= link_to @posts.title, "/users/#{@user.id}/posts/#{@posts.id}" %>
-       <span><%=@posts.text%></span>
-       <span>Comments:<%=@posts.comments_counter%> Likes:<%=@posts.likes_counter%></span>
+       <div><%=@posts.text%></div>
+       <div>Comments:<%=@posts.comments_counter%></div> <div>Likes:<%=@posts.likes_counter%></div>
        <div>
         <%comments = Comment.where(posts_id: @posts.id)%>
         <%comments.each do |comment|%>
