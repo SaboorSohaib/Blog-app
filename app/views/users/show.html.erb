@@ -1,17 +1,16 @@
 <section>
- <%@user.each do |usr|%>
   <div class="user-info">
     <div class="user-img">
-        <img src=<%=usr.photo%>>
+        <img src=<%=@user.photo%>>
     </div>
     <div class="user-content">
-        <span><%=usr.name%></span>
-        <span>Number of Posts:<%=usr.posts_counter%></span>
+        <span><%=@user.name%></span>
+        <span>Number of Posts:<%=@user.posts_counter%></span>
     </div>
   </div>
   <div class="user-bio">
     <span>Bio:</span>
-    <p><%=usr.bio%></p>
+    <p><%=@user.bio%></p>
   </div>
  <%end%>
  <div class="posts">
