@@ -1,2 +1,26 @@
-<h1>Showing all posts for user with id:<%=@user_id%>
-</h1>
+<section>
+  <div class="user-info">
+    <div class="user-img">
+        <img src=<%=@user.photo%> >
+    </div>
+    <div class="user-name">
+        <span><%=@user.name%></span><br>
+    </div>
+    <div class="user-posts">
+         <span>Number of Posts:<%=@user.posts_counter%></span>
+    </div>
+  </div>
+  
+    <div class="post-content">
+       <%= link_to @posts.title, "/users/#{@user.id}/posts/#{@posts.id}" %>
+       <div><%=@posts.text%></div>
+       <div>Comments:<%=@posts.comments_counter%></div> <div>Likes:<%=@posts.likes_counter%></div>
+       <div>
+        <%comments = Comment.where(posts_id: @posts.id)%>
+        <%comments.each do |comment|%>
+        <span><%user = User.find_by(id: comment.author_id).name%></span>
+        <span><%=user%>: <%=comment.text%></span>
+        <%end%>
+       </div>
+    </div>
+</section>
