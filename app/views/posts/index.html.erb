@@ -1,25 +1,26 @@
 <section>
   <div class="user-info">
     <div class="user-img">
-        <img src=<%=@user.photo%>>
+        <img src=<%=@user.photo%> >
     </div>
-    <div class="user-content">
-        <span><%=@user.name%></span>
-        <span>Number of Posts:<%=@user.posts_counter%></span>
+    <div class="user-name">
+        <span><%=@user.name%></span><br>
+    </div>
+    <div class="user-posts">
+         <span>Number of Posts:<%=@user.posts_counter%></span>
     </div>
   </div>
-  <%@posts.each do |post|%>
+  
     <div class="post-content">
-       <%= link_to post.Title, "/users/#{@user.id}/posts/#{post.id}" %>
-       <span><%=post.text%></span>
-       <span>Comments:<%=post.comments_counter%> Likes:<%=post.likes_counter%></span>
+       <%= link_to @posts.title, "/users/#{@user.id}/posts/#{@posts.id}" %>
+       <span><%=@posts.text%></span>
+       <span>Comments:<%=@posts.comments_counter%> Likes:<%=@posts.likes_counter%></span>
        <div>
-        <%comments = Comments.where(posts_id: post.id)%>
+        <%comments = Comment.where(posts_id: @posts.id)%>
         <%comments.each do |comment|%>
         <span><%user = User.find_by(id: comment.author_id).name%></span>
         <span><%=user%>: <%=comment.text%></span>
         <%end%>
        </div>
     </div>
-  <%end%>
 </section>
