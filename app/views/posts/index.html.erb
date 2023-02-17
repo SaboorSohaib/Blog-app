@@ -16,8 +16,7 @@
        <div><%=@posts.text%></div>
        <div>Comments:<%=@posts.comments_counter%></div> <div>Likes:<%=@posts.likes_counter%></div>
        <div>
-        <%comments = Comment.where(posts_id: @posts.id)%>
-        <%comments.each do |comment|%>
+        <%@posts.most_recent_comment.each do |comment|%>
         <span><%user = User.find_by(id: comment.author_id).name%></span>
         <span><%=user%>: <%=comment.text%></span>
         <%end%>
