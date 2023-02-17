@@ -12,7 +12,7 @@
         <%end%>
     </div>
 
-    <%=form_with model: @comment, url: user_post_comments_path(@user.id, @pos.id) do |form|%>
+    <%=form_with model: @comment, url: user_post_comments_path(@user.id, @post.id) do |form|%>
         <%=form.text_area :text%>
         <%=form.submit "Add Comment"%>
     <%end%>

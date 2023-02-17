@@ -7,6 +7,6 @@ class CommentsController < ApplicationController
             author_id: user.id
         )
         return unless @comment.save
-        redirect_to request.original_url
+        redirect_to user_post_comments_path
     end
 end
