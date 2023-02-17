@@ -24,4 +24,13 @@
   <%= link_to "/users/#{@user.id}/posts" do %>
     <button type="button" class="all-posts">See all posts</button>
   <% end %>
+
+  <div>
+    <h1>Add a New Post</h1>
+    <%= form_with model:@post, url: user_posts_path(:author_id) do |form|%>
+      <%= form.text_field :title, placeholder: "Add Title"%>
+      <%= form.text_field :text, placeholder: "Add Text"%>
+      <%=form.submit%>
+    <%end%>
+  </div>
 </section>
