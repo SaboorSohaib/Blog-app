@@ -16,8 +16,8 @@ class PostsController < ApplicationController
   def create
     user = current_user
     @post = Post.new(
-      title: params[:title]
-      text: params[:text]
+      title: params[:title],
+      text: params[:text],
       author_id: user.id
     )
     return unless @post.save
