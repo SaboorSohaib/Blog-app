@@ -11,4 +11,15 @@
             <span><%=user%>: <%=comment.text%></span>
         <%end%>
     </div>
+
+    <%=form_with model: @comment, url: user_post_comments_path(@user.id, @pos.id) do |form|%>
+        <%=form.text_area :text%>
+        <%=form.submit "Add Comment"%>
+    <%end%>
+
+    <div>
+        <%=form_with model:@like, url: user_post_likes_path(@user.id, @post.id) do |form|%>
+            <%=form.submit "Like the Post"%>
+        <%end%>
+    </div>
 </section>
