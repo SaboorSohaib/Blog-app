@@ -21,6 +21,7 @@ class PostsController < ApplicationController
       author_id: user.id
     )
     return unless @post.save
+
     redirect_to user_posts_path
   end
 end
