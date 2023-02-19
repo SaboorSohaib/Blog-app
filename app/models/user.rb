@@ -8,5 +8,6 @@ class User < ApplicationRecord
 
   def most_recent_post
     posts.order(created_at: :desc).includes(:user).limit(3)
+    # Post.where(author_id: id).order(created_at: :desc).limit(3)
   end
 end

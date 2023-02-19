@@ -12,15 +12,16 @@
   </div>
   
     <div class="post-content">
-       <%= link_to @posts.title, "/users/#{@user.id}/posts/#{@posts.id}" %>
-       <div><%=@posts.text%></div>
-       <div>Comments:<%=@posts.comments_counter%></div> <div>Likes:<%=@posts.likes_counter%></div>
+      <%=@user.posts.each do |post|%>
+       <%= link_to post.title, "/users/#{@user.id}/posts/#{post.id}" %>
+       <div><%=post.text%></div>
+       <div>Comments:<%=post.comments_counter%></div> <div>Likes:<%=post.likes_counter%></div>
        <div>
-        <%comments = Comment.where(posts_id: @posts.id)%>
-        <%comments.each do |comment|%>
-        <span><%user = User.find_by(id: comment.author_id).name%></span>
+        <%post.most_recent_comment.includes(:user).each do |comment|%>
+        <span><%user = comment.user.name%></span>
         <span><%=user%>: <%=comment.text%></span>
         <%end%>
        </div>
+      <%end%>
     </div>
 </section>

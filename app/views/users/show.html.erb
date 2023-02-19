@@ -15,13 +15,24 @@
     <span><%=@user.bio%></span>
   </div>
  <div class="posts">
+    <%@user.most_recent_post.each do |post|%>
       <div class="post-info">
-        <span>Post Title:<%=@posts.title%></span>
-        <span><%=@posts.text%></span><br>
-        <span>Comments:<%=@posts.comments_counter%> Likes:<%=@posts.likes_counter%></span>
+        <span>Post Title:<%=post.title%></span>
+        <span><%=post.text%></span><br>
+        <span>Comments:<%=post.comments_counter%> Likes:<%=post.likes_counter%></span>
       </div>
+    <%end%>
   </div>
   <%= link_to "/users/#{@user.id}/posts" do %>
     <button type="button" class="all-posts">See all posts</button>
   <% end %>
+
+  <div>
+    <h1>Add a New Post</h1>
+    <%= form_with model:@post, url: user_posts_path(:author_id) do |form|%>
+      <%= form.text_field :title, placeholder: "Add Title"%>
+      <%= form.text_field :text, placeholder: "Add Text"%>
+      <%=form.submit%>
+    <%end%>
+  </div>
 </section>
