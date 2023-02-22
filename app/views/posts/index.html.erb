@@ -18,8 +18,8 @@
        <div>Comments:<%=post.comments_counter%></div> <div>Likes:<%=post.likes_counter%></div>
        <div>
         <%post.most_recent_comment.includes(:author).each do |comment|%>
-        <span><%user = comment.user.name%></span>
-        <span><%=user%>: <%=comment.text%></span>
+        <span><%user = comment.author.name%></span>
+        <div><%=user%>: <%=comment.text%></div>
         <%end%>
        </div>
       <%end%>
