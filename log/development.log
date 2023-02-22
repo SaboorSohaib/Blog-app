@@ -4542,3 +4542,967 @@ ActionView::Template::Error (undefined method `name' for nil:NilClass):
 app/views/posts/index.html.erb:21
 app/views/posts/index.html.erb:20
 app/views/posts/index.html.erb:15
+Started GET "/" for 127.0.0.1 at 2023-02-18 11:26:58 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 25.1ms | Allocations: 5663)
+  Rendered layout layouts/application.html.erb (Duration: 104.8ms | Allocations: 25483)
+Completed 200 OK in 123ms (Views: 103.8ms | ActiveRecord: 6.1ms | Allocations: 30793)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-02-18 11:27:03 +0430
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 1], ["LIMIT", 3]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", nil]]
+  ↳ app/views/users/show.html.erb:18
+  Rendered users/show.html.erb within layouts/application (Duration: 29.2ms | Allocations: 8274)
+  Rendered layout layouts/application.html.erb (Duration: 32.1ms | Allocations: 9235)
+Completed 200 OK in 82ms (Views: 32.2ms | ActiveRecord: 10.1ms | Allocations: 18260)
+
+
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-02-18 11:28:21 +0430
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:3:in `index'
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/views/posts/index.html.erb:15
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 1], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 2], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 3], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", nil]]
+  ↳ app/views/posts/index.html.erb:20
+  Rendered posts/index.html.erb within layouts/application (Duration: 42.3ms | Allocations: 9928)
+  Rendered layout layouts/application.html.erb (Duration: 43.0ms | Allocations: 10017)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 9.0ms | Allocations: 11631)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    18:        <div>Comments:<%=post.comments_counter%></div> <div>Likes:<%=post.likes_counter%></div>
+    19:        <div>
+    20:         <%post.most_recent_comment.includes(:user).each do |comment|%>
+    21:         <span><%user = comment.user.name%></span>
+    22:         <span><%=user%>: <%=comment.text%></span>
+    23:         <%end%>
+    24:        </div>
+  
+app/views/posts/index.html.erb:21
+app/views/posts/index.html.erb:20
+app/views/posts/index.html.erb:15
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-02-18 11:29:20 +0430
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+Completed 404 Not Found in 12ms (ActiveRecord: 4.6ms | Allocations: 2190)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/posts_controller.rb:3:in `index'
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-02-18 11:29:54 +0430
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:3:in `index'
+Completed 404 Not Found in 37ms (ActiveRecord: 9.4ms | Allocations: 6479)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post without an ID):
+  
+app/controllers/posts_controller.rb:4:in `index'
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-02-18 11:30:25 +0430
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:3:in `index'
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/views/posts/index.html.erb:15
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 1], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 2], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 3], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", nil]]
+  ↳ app/views/posts/index.html.erb:20
+  Rendered posts/index.html.erb within layouts/application (Duration: 49.7ms | Allocations: 17230)
+  Rendered layout layouts/application.html.erb (Duration: 50.2ms | Allocations: 17318)
+Completed 500 Internal Server Error in 100ms (ActiveRecord: 20.0ms | Allocations: 26901)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    18:        <div>Comments:<%=post.comments_counter%></div> <div>Likes:<%=post.likes_counter%></div>
+    19:        <div>
+    20:         <%post.most_recent_comment.includes(:user).each do |comment|%>
+    21:         <span><%user = comment.user.name%></span>
+    22:         <span><%=user%>: <%=comment.text%></span>
+    23:         <%end%>
+    24:        </div>
+  
+app/views/posts/index.html.erb:21
+app/views/posts/index.html.erb:20
+app/views/posts/index.html.erb:15
+Started GET "/users/1" for 127.0.0.1 at 2023-02-18 11:30:55 +0430
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 1], ["LIMIT", 3]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", nil]]
+  ↳ app/views/users/show.html.erb:18
+  Rendered users/show.html.erb within layouts/application (Duration: 14.7ms | Allocations: 3972)
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | Allocations: 5002)
+Completed 200 OK in 34ms (Views: 20.2ms | ActiveRecord: 2.2ms | Allocations: 6508)
+
+
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-02-18 11:30:57 +0430
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:3:in `index'
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/views/posts/index.html.erb:15
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 1], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 2], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 3], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", nil]]
+  ↳ app/views/posts/index.html.erb:20
+  Rendered posts/index.html.erb within layouts/application (Duration: 24.2ms | Allocations: 4848)
+  Rendered layout layouts/application.html.erb (Duration: 24.9ms | Allocations: 4935)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 3.7ms | Allocations: 6166)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    18:        <div>Comments:<%=post.comments_counter%></div> <div>Likes:<%=post.likes_counter%></div>
+    19:        <div>
+    20:         <%post.most_recent_comment.includes(:user).each do |comment|%>
+    21:         <span><%user = comment.user.name%></span>
+    22:         <span><%=user%>: <%=comment.text%></span>
+    23:         <%end%>
+    24:        </div>
+  
+app/views/posts/index.html.erb:21
+app/views/posts/index.html.erb:20
+app/views/posts/index.html.erb:15
+Started POST "/users/author_id/posts" for 127.0.0.1 at 2023-02-18 11:41:08 +0430
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "title"=>"Soccer", "text"=>"I play soccer alot.", "commit"=>"Save ", "user_id"=>"author_id"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 33ms (ActiveRecord: 11.7ms | Allocations: 5984)
+
+
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-02-18 11:41:15 +0430
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:3:in `index'
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/views/posts/index.html.erb:15
+  [1m[36mComment Load (1.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 1], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 2], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 3], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", nil]]
+  ↳ app/views/posts/index.html.erb:20
+  Rendered posts/index.html.erb within layouts/application (Duration: 28.2ms | Allocations: 4855)
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | Allocations: 4942)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 5.2ms | Allocations: 6182)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    18:        <div>Comments:<%=post.comments_counter%></div> <div>Likes:<%=post.likes_counter%></div>
+    19:        <div>
+    20:         <%post.most_recent_comment.includes(:user).each do |comment|%>
+    21:         <span><%user = comment.user.name%></span>
+    22:         <span><%=user%>: <%=comment.text%></span>
+    23:         <%end%>
+    24:        </div>
+  
+app/views/posts/index.html.erb:21
+app/views/posts/index.html.erb:20
+app/views/posts/index.html.erb:15
+Started GET "/users/1" for 127.0.0.1 at 2023-02-18 11:41:41 +0430
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 1], ["LIMIT", 3]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", nil]]
+  ↳ app/views/users/show.html.erb:18
+  Rendered users/show.html.erb within layouts/application (Duration: 15.7ms | Allocations: 3275)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 4250)
+Completed 200 OK in 31ms (Views: 21.9ms | ActiveRecord: 2.6ms | Allocations: 5503)
+
+
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-02-18 11:41:45 +0430
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:3:in `index'
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/views/posts/index.html.erb:15
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 1], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 2], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 3], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", nil]]
+  ↳ app/views/posts/index.html.erb:20
+  Rendered posts/index.html.erb within layouts/application (Duration: 25.7ms | Allocations: 4848)
+  Rendered layout layouts/application.html.erb (Duration: 26.5ms | Allocations: 4935)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 5.2ms | Allocations: 6165)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    18:        <div>Comments:<%=post.comments_counter%></div> <div>Likes:<%=post.likes_counter%></div>
+    19:        <div>
+    20:         <%post.most_recent_comment.includes(:user).each do |comment|%>
+    21:         <span><%user = comment.user.name%></span>
+    22:         <span><%=user%>: <%=comment.text%></span>
+    23:         <%end%>
+    24:        </div>
+  
+app/views/posts/index.html.erb:21
+app/views/posts/index.html.erb:20
+app/views/posts/index.html.erb:15
+Started GET "/" for 127.0.0.1 at 2023-02-18 11:44:47 +0430
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 24.3ms | Allocations: 2753)
+  Rendered layout layouts/application.html.erb (Duration: 30.4ms | Allocations: 3964)
+Completed 200 OK in 38ms (Views: 19.3ms | ActiveRecord: 13.1ms | Allocations: 6054)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-02-18 11:44:49 +0430
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 1], ["LIMIT", 3]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", nil]]
+  ↳ app/views/users/show.html.erb:18
+  Rendered users/show.html.erb within layouts/application (Duration: 45.8ms | Allocations: 7938)
+  Rendered layout layouts/application.html.erb (Duration: 49.9ms | Allocations: 8913)
+Completed 200 OK in 59ms (Views: 45.1ms | ActiveRecord: 7.4ms | Allocations: 10241)
+
+
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-02-18 11:44:54 +0430
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:3:in `index'
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/views/posts/index.html.erb:15
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 1], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 2], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 3], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", nil]]
+  ↳ app/views/posts/index.html.erb:20
+  Rendered posts/index.html.erb within layouts/application (Duration: 51.6ms | Allocations: 8565)
+  Rendered layout layouts/application.html.erb (Duration: 54.2ms | Allocations: 8653)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 12.0ms | Allocations: 10701)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    18:        <div>Comments:<%=post.comments_counter%></div> <div>Likes:<%=post.likes_counter%></div>
+    19:        <div>
+    20:         <%post.most_recent_comment.includes(:user).each do |comment|%>
+    21:         <span><%user = comment.user.name%></span>
+    22:         <span><%=user%>: <%=comment.text%></span>
+    23:         <%end%>
+    24:        </div>
+  
+app/views/posts/index.html.erb:21
+app/views/posts/index.html.erb:20
+app/views/posts/index.html.erb:15
+Started GET "/" for 127.0.0.1 at 2023-02-18 11:45:31 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 33.2ms | Allocations: 5663)
+  Rendered layout layouts/application.html.erb (Duration: 111.7ms | Allocations: 25268)
+Completed 200 OK in 136ms (Views: 105.3ms | ActiveRecord: 10.6ms | Allocations: 30578)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-02-18 11:45:33 +0430
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 1], ["LIMIT", 3]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", nil]]
+  ↳ app/views/users/show.html.erb:18
+  Rendered users/show.html.erb within layouts/application (Duration: 63.1ms | Allocations: 13602)
+  Rendered layout layouts/application.html.erb (Duration: 67.5ms | Allocations: 14563)
+Completed 200 OK in 78ms (Views: 60.9ms | ActiveRecord: 8.9ms | Allocations: 17173)
+
+
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-02-18 11:45:37 +0430
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:3:in `index'
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/views/posts/index.html.erb:15
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 1], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 2], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 3], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", nil]]
+  ↳ app/views/posts/index.html.erb:20
+  Rendered posts/index.html.erb within layouts/application (Duration: 54.6ms | Allocations: 9861)
+  Rendered layout layouts/application.html.erb (Duration: 55.2ms | Allocations: 9950)
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 10.9ms | Allocations: 12141)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    18:        <div>Comments:<%=post.comments_counter%></div> <div>Likes:<%=post.likes_counter%></div>
+    19:        <div>
+    20:         <%post.most_recent_comment.includes(:user).each do |comment|%>
+    21:         <span><%user = comment.user.name%></span>
+    22:         <span><%=user%>: <%=comment.text%></span>
+    23:         <%end%>
+    24:        </div>
+  
+app/views/posts/index.html.erb:21
+app/views/posts/index.html.erb:20
+app/views/posts/index.html.erb:15
+Started GET "/" for 127.0.0.1 at 2023-02-22 11:24:10 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (47.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (79.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/index.html.erb within layouts/application (Duration: 232.4ms | Allocations: 5669)
+  Rendered layout layouts/application.html.erb (Duration: 435.6ms | Allocations: 25761)
+Completed 200 OK in 611ms (Views: 304.0ms | ActiveRecord: 166.8ms | Allocations: 31071)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-02-22 11:24:16 +0430
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (59.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1 ORDER BY "posts"."created_at" DESC LIMIT $2[0m  [["author_id", 1], ["LIMIT", 3]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", nil]]
+  ↳ app/views/users/show.html.erb:18
+  Rendered users/show.html.erb within layouts/application (Duration: 233.0ms | Allocations: 13634)
+  Rendered layout layouts/application.html.erb (Duration: 236.0ms | Allocations: 14595)
+Completed 200 OK in 302ms (Views: 170.7ms | ActiveRecord: 68.4ms | Allocations: 23287)
+
+
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-02-22 11:24:26 +0430
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:3:in `index'
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/views/posts/index.html.erb:15
+  [1m[36mComment Load (67.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 1], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 2], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."posts_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["posts_id", 3], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:20
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", nil]]
+  ↳ app/views/posts/index.html.erb:20
+  Rendered posts/index.html.erb within layouts/application (Duration: 149.7ms | Allocations: 9862)
+  Rendered layout layouts/application.html.erb (Duration: 151.4ms | Allocations: 9951)
+Completed 500 Internal Server Error in 166ms (ActiveRecord: 75.5ms | Allocations: 12142)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    18:        <div>Comments:<%=post.comments_counter%></div> <div>Likes:<%=post.likes_counter%></div>
+    19:        <div>
+    20:         <%post.most_recent_comment.includes(:user).each do |comment|%>
+    21:         <span><%user = comment.user.name%></span>
+    22:         <span><%=user%>: <%=comment.text%></span>
+    23:         <%end%>
+    24:        </div>
+  
+app/views/posts/index.html.erb:21
+app/views/posts/index.html.erb:20
+app/views/posts/index.html.erb:15
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (5049.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "app_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (446.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "app_development"[0m
+  [1m[35m (431.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "app_test"[0m
+  [1m[35m (1230.6ms)[0m  [1m[35mCREATE DATABASE "app_development" ENCODING = 'unicode'[0m
+  [1m[35m (280.2ms)[0m  [1m[35mCREATE DATABASE "app_test" ENCODING = 'unicode'[0m
+  [1m[35m (182.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (111.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20230208041221)
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (103.4ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "text" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208041221"]]
+  [1m[36mTRANSACTION (26.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLikes (20230208041247)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (48.7ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208041247"]]
+  [1m[36mTRANSACTION (21.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePosts (20230208041406)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (86.1ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "text" text, "comments_counter" integer, "likes_counter" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208041406"]]
+  [1m[36mTRANSACTION (16.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20230208041541)
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (85.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "photo" character varying, "bio" text, "posts_counter" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208041541"]]
+  [1m[36mTRANSACTION (12.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUsersToComments (20230208041731)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "comments" ADD "users_id" bigint NOT NULL[0m
+  [1m[35m (34.9ms)[0m  [1m[35mCREATE INDEX "index_comments_on_users_id" ON "comments" ("users_id")[0m
+  [1m[35m (25.5ms)[0m  [1m[35mALTER TABLE "comments" ADD CONSTRAINT "fk_rails_1e28850acb"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208041731"]]
+  [1m[36mTRANSACTION (17.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to FixColumnNameAuthor (20230208041840)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "comments" RENAME COLUMN "users_id" TO "author_id"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER INDEX "index_comments_on_users_id" RENAME TO "index_comments_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208041840"]]
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPostToComments (20230208042028)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "comments" ADD "posts_id" bigint NOT NULL[0m
+  [1m[35m (42.6ms)[0m  [1m[35mCREATE INDEX "index_comments_on_posts_id" ON "comments" ("posts_id")[0m
+  [1m[35m (7.4ms)[0m  [1m[35mALTER TABLE "comments" ADD CONSTRAINT "fk_rails_581572ac1f"
+FOREIGN KEY ("posts_id")
+  REFERENCES "posts" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208042028"]]
+  [1m[36mTRANSACTION (15.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPostsToLikes (20230208044532)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "likes" ADD "posts_id" bigint NOT NULL[0m
+  [1m[35m (41.6ms)[0m  [1m[35mCREATE INDEX "index_likes_on_posts_id" ON "likes" ("posts_id")[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "likes" ADD CONSTRAINT "fk_rails_b1afef8225"
+FOREIGN KEY ("posts_id")
+  REFERENCES "posts" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208044532"]]
+  [1m[36mTRANSACTION (11.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUsersToLikes (20230208044616)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "likes" ADD "users_id" bigint NOT NULL[0m
+  [1m[35m (40.2ms)[0m  [1m[35mCREATE INDEX "index_likes_on_users_id" ON "likes" ("users_id")[0m
+  [1m[35m (3.9ms)[0m  [1m[35mALTER TABLE "likes" ADD CONSTRAINT "fk_rails_0831fd4d8e"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208044616"]]
+  [1m[36mTRANSACTION (17.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUsersToPosts (20230208044711)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "posts" ADD "users_id" bigint NOT NULL[0m
+  [1m[35m (44.0ms)[0m  [1m[35mCREATE INDEX "index_posts_on_users_id" ON "posts" ("users_id")[0m
+  [1m[35m (3.5ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_403c3577f5"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208044711"]]
+  [1m[36mTRANSACTION (15.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to FixColumnNamePosts (20230208044919)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "posts" RENAME COLUMN "users_id" TO "author_id"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER INDEX "index_posts_on_users_id" RENAME TO "index_posts_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208044919"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameColumnNamePosts (20230208135441)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "posts" RENAME COLUMN "author_id" TO "users_id"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER INDEX "index_posts_on_author_id" RENAME TO "index_posts_on_users_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208135441"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameColumnNameComments (20230208135613)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "comments" RENAME COLUMN "author_id" TO "users_id"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER INDEX "index_comments_on_author_id" RENAME TO "index_comments_on_users_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208135613"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChnageColumnName (20230209073855)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "posts" RENAME COLUMN "users_id" TO "author_id"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER INDEX "index_posts_on_users_id" RENAME TO "index_posts_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230209073855"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeColumnName (20230209082007)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "likes" RENAME COLUMN "users_id" TO "author_id"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER INDEX "index_likes_on_users_id" RENAME TO "index_likes_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230209082007"]]
+  [1m[36mTRANSACTION (39.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeColumnNames (20230209082138)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "comments" RENAME COLUMN "users_id" TO "author_id"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER INDEX "index_comments_on_users_id" RENAME TO "index_comments_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230209082138"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-02-22 07:53:07.331731"], ["updated_at", "2023-02-22 07:53:07.331731"]]
+  [1m[36mTRANSACTION (9.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Count (4.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "photo", "bio", "posts_counter", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tom"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["bio", "Teacher from Mexico."], ["posts_counter", nil], ["created_at", "2023-02-22 07:58:30.209907"], ["updated_at", "2023-02-22 07:58:30.209907"]]
+  [1m[36mTRANSACTION (23.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "photo", "bio", "posts_counter", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Lilly"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["bio", "Teacher from Poland."], ["posts_counter", nil], ["created_at", "2023-02-22 07:58:43.401081"], ["updated_at", "2023-02-22 07:58:43.401081"]]
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (5031.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "app_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (311.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "app_development"[0m
+  [1m[35m (319.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "app_test"[0m
+  [1m[35m (215.9ms)[0m  [1m[35mCREATE DATABASE "app_development" ENCODING = 'unicode'[0m
+  [1m[35m (287.6ms)[0m  [1m[35mCREATE DATABASE "app_test" ENCODING = 'unicode'[0m
+  [1m[35m (139.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (106.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20230208041221)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (96.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "text" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208041221"]]
+  [1m[36mTRANSACTION (20.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLikes (20230208041247)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (50.7ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208041247"]]
+  [1m[36mTRANSACTION (21.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePosts (20230208041406)
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (101.0ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "text" text, "comments_counter" integer, "likes_counter" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208041406"]]
+  [1m[36mTRANSACTION (18.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20230208041541)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (118.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "photo" character varying, "bio" text, "posts_counter" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208041541"]]
+  [1m[36mTRANSACTION (18.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUsersToComments (20230208041731)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "comments" ADD "users_id" bigint NOT NULL[0m
+  [1m[35m (57.5ms)[0m  [1m[35mCREATE INDEX "index_comments_on_users_id" ON "comments" ("users_id")[0m
+  [1m[35m (6.8ms)[0m  [1m[35mALTER TABLE "comments" ADD CONSTRAINT "fk_rails_1e28850acb"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208041731"]]
+  [1m[36mTRANSACTION (15.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to FixColumnNameAuthor (20230208041840)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "comments" RENAME COLUMN "users_id" TO "author_id"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER INDEX "index_comments_on_users_id" RENAME TO "index_comments_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208041840"]]
+  [1m[36mTRANSACTION (13.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPostToComments (20230208042028)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "comments" ADD "posts_id" bigint NOT NULL[0m
+  [1m[35m (48.0ms)[0m  [1m[35mCREATE INDEX "index_comments_on_posts_id" ON "comments" ("posts_id")[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "comments" ADD CONSTRAINT "fk_rails_581572ac1f"
+FOREIGN KEY ("posts_id")
+  REFERENCES "posts" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208042028"]]
+  [1m[36mTRANSACTION (13.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPostsToLikes (20230208044532)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "likes" ADD "posts_id" bigint NOT NULL[0m
+  [1m[35m (47.5ms)[0m  [1m[35mCREATE INDEX "index_likes_on_posts_id" ON "likes" ("posts_id")[0m
+  [1m[35m (4.6ms)[0m  [1m[35mALTER TABLE "likes" ADD CONSTRAINT "fk_rails_b1afef8225"
+FOREIGN KEY ("posts_id")
+  REFERENCES "posts" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208044532"]]
+  [1m[36mTRANSACTION (12.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUsersToLikes (20230208044616)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "likes" ADD "users_id" bigint NOT NULL[0m
+  [1m[35m (49.9ms)[0m  [1m[35mCREATE INDEX "index_likes_on_users_id" ON "likes" ("users_id")[0m
+  [1m[35m (3.4ms)[0m  [1m[35mALTER TABLE "likes" ADD CONSTRAINT "fk_rails_0831fd4d8e"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208044616"]]
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUsersToPosts (20230208044711)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "posts" ADD "users_id" bigint NOT NULL[0m
+  [1m[35m (45.5ms)[0m  [1m[35mCREATE INDEX "index_posts_on_users_id" ON "posts" ("users_id")[0m
+  [1m[35m (3.7ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_403c3577f5"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208044711"]]
+  [1m[36mTRANSACTION (12.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to FixColumnNamePosts (20230208044919)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "posts" RENAME COLUMN "users_id" TO "author_id"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER INDEX "index_posts_on_users_id" RENAME TO "index_posts_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208044919"]]
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameColumnNamePosts (20230208135441)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "posts" RENAME COLUMN "author_id" TO "users_id"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER INDEX "index_posts_on_author_id" RENAME TO "index_posts_on_users_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208135441"]]
+  [1m[36mTRANSACTION (13.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameColumnNameComments (20230208135613)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "comments" RENAME COLUMN "author_id" TO "users_id"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER INDEX "index_comments_on_author_id" RENAME TO "index_comments_on_users_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208135613"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChnageColumnName (20230209073855)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "posts" RENAME COLUMN "users_id" TO "author_id"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER INDEX "index_posts_on_users_id" RENAME TO "index_posts_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230209073855"]]
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeColumnName (20230209082007)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "likes" RENAME COLUMN "users_id" TO "author_id"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER INDEX "index_likes_on_users_id" RENAME TO "index_likes_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230209082007"]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeColumnNames (20230209082138)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "comments" RENAME COLUMN "users_id" TO "author_id"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER INDEX "index_comments_on_users_id" RENAME TO "index_comments_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230209082138"]]
+  [1m[36mTRANSACTION (9.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-02-22 08:08:37.412344"], ["updated_at", "2023-02-22 08:08:37.412344"]]
+  [1m[36mTRANSACTION (11.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "photo", "bio", "posts_counter", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tom"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["bio", "Teacher from Mexico."], ["posts_counter", nil], ["created_at", "2023-02-22 08:13:05.390695"], ["updated_at", "2023-02-22 08:13:05.390695"]]
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "photo", "bio", "posts_counter", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tom"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["bio", "Teacher from Mexico."], ["posts_counter", nil], ["created_at", "2023-02-22 08:14:19.561193"], ["updated_at", "2023-02-22 08:14:19.561193"]]
+  [1m[36mTRANSACTION (14.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "photo", "bio", "posts_counter", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tom"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["bio", "Teacher from Mexico."], ["posts_counter", nil], ["created_at", "2023-02-22 08:14:53.377334"], ["updated_at", "2023-02-22 08:14:53.377334"]]
+  [1m[36mTRANSACTION (21.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "photo", "bio", "posts_counter", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tom"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["bio", "Teacher from Mexico."], ["posts_counter", nil], ["created_at", "2023-02-22 08:15:35.241016"], ["updated_at", "2023-02-22 08:15:35.241016"]]
+  [1m[36mTRANSACTION (16.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "photo", "bio", "posts_counter", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tom"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["bio", "Teacher from Mexico."], ["posts_counter", nil], ["created_at", "2023-02-22 08:16:55.815328"], ["updated_at", "2023-02-22 08:16:55.815328"]]
+  [1m[36mTRANSACTION (15.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (5008.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "app_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (311.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "app_development"[0m
+  [1m[35m (551.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "app_test"[0m
+  [1m[35m (247.8ms)[0m  [1m[35mCREATE DATABASE "app_development" ENCODING = 'unicode'[0m
+  [1m[35m (197.7ms)[0m  [1m[35mCREATE DATABASE "app_test" ENCODING = 'unicode'[0m
+  [1m[35m (107.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (119.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20230208041221)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (112.4ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "text" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208041221"]]
+  [1m[36mTRANSACTION (18.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLikes (20230208041247)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (62.5ms)[0m  [1m[35mCREATE TABLE "likes" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208041247"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePosts (20230208041406)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (90.7ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "text" text, "comments_counter" integer, "likes_counter" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208041406"]]
+  [1m[36mTRANSACTION (21.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20230208041541)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (105.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "photo" character varying, "bio" text, "posts_counter" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208041541"]]
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUsersToComments (20230208041731)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "comments" ADD "users_id" bigint NOT NULL[0m
+  [1m[35m (39.9ms)[0m  [1m[35mCREATE INDEX "index_comments_on_users_id" ON "comments" ("users_id")[0m
+  [1m[35m (3.6ms)[0m  [1m[35mALTER TABLE "comments" ADD CONSTRAINT "fk_rails_1e28850acb"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208041731"]]
+  [1m[36mTRANSACTION (99.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to FixColumnNameAuthor (20230208041840)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "comments" RENAME COLUMN "users_id" TO "author_id"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER INDEX "index_comments_on_users_id" RENAME TO "index_comments_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208041840"]]
+  [1m[36mTRANSACTION (58.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPostToComments (20230208042028)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "comments" ADD "posts_id" bigint NOT NULL[0m
+  [1m[35m (111.0ms)[0m  [1m[35mCREATE INDEX "index_comments_on_posts_id" ON "comments" ("posts_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "comments" ADD CONSTRAINT "fk_rails_581572ac1f"
+FOREIGN KEY ("posts_id")
+  REFERENCES "posts" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208042028"]]
+  [1m[36mTRANSACTION (33.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPostsToLikes (20230208044532)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "likes" ADD "posts_id" bigint NOT NULL[0m
+  [1m[35m (92.4ms)[0m  [1m[35mCREATE INDEX "index_likes_on_posts_id" ON "likes" ("posts_id")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "likes" ADD CONSTRAINT "fk_rails_b1afef8225"
+FOREIGN KEY ("posts_id")
+  REFERENCES "posts" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208044532"]]
+  [1m[36mTRANSACTION (13.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUsersToLikes (20230208044616)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "likes" ADD "users_id" bigint NOT NULL[0m
+  [1m[35m (46.9ms)[0m  [1m[35mCREATE INDEX "index_likes_on_users_id" ON "likes" ("users_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "likes" ADD CONSTRAINT "fk_rails_0831fd4d8e"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208044616"]]
+  [1m[36mTRANSACTION (14.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUsersToPosts (20230208044711)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "posts" ADD "users_id" bigint NOT NULL[0m
+  [1m[35m (62.1ms)[0m  [1m[35mCREATE INDEX "index_posts_on_users_id" ON "posts" ("users_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_403c3577f5"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208044711"]]
+  [1m[36mTRANSACTION (35.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to FixColumnNamePosts (20230208044919)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "posts" RENAME COLUMN "users_id" TO "author_id"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER INDEX "index_posts_on_users_id" RENAME TO "index_posts_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208044919"]]
+  [1m[36mTRANSACTION (70.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameColumnNamePosts (20230208135441)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "posts" RENAME COLUMN "author_id" TO "users_id"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER INDEX "index_posts_on_author_id" RENAME TO "index_posts_on_users_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208135441"]]
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameColumnNameComments (20230208135613)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "comments" RENAME COLUMN "author_id" TO "users_id"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER INDEX "index_comments_on_author_id" RENAME TO "index_comments_on_users_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230208135613"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChnageColumnName (20230209073855)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "posts" RENAME COLUMN "users_id" TO "author_id"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER INDEX "index_posts_on_users_id" RENAME TO "index_posts_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230209073855"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeColumnName (20230209082007)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "likes" RENAME COLUMN "users_id" TO "author_id"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER INDEX "index_likes_on_users_id" RENAME TO "index_likes_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230209082007"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeColumnNames (20230209082138)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "comments" RENAME COLUMN "users_id" TO "author_id"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER INDEX "index_comments_on_users_id" RENAME TO "index_comments_on_author_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230209082138"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-02-22 09:00:45.638319"], ["updated_at", "2023-02-22 09:00:45.638319"]]
+  [1m[36mTRANSACTION (12.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "photo", "bio", "posts_counter", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Tom"], ["photo", "https://unsplash.com/photos/F_-0BxGuVvo"], ["bio", "Teacher from Mexico."], ["posts_counter", nil], ["created_at", "2023-02-22 09:01:43.251256"], ["updated_at", "2023-02-22 09:01:43.251256"]]
+  [1m[36mTRANSACTION (103.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mPost Load (2.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (5008.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "app_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (255.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "app_development"[0m
+  [1m[35m (332.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "app_test"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "app_development"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "app_test"[0m
+  [1m[35m (531.0ms)[0m  [1m[35mCREATE DATABASE "app_development" ENCODING = 'unicode'[0m
+  [1m[35m (237.1ms)[0m  [1m[35mCREATE DATABASE "app_test" ENCODING = 'unicode'[0m
+  [1m[35m (113.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (104.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-02-22 09:18:56.218487"], ["updated_at", "2023-02-22 09:18:56.218487"]]
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
