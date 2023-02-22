@@ -15,12 +15,12 @@ RSpec.describe Like, type: :model do
       expect(id).to be == 5
     end
 
-    it 'The posts_id should be number' do
+    it 'The post_id should be number' do
       subject.post_id = 'bbb'
       expect(subject).to_not be_valid
     end
 
-    it 'The posts_id should be integer' do
+    it 'The post_id should be integer' do
       id = subject.post_id = 5
       expect(id).to be == 5
     end
