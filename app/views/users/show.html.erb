@@ -13,13 +13,13 @@
   <div class="user-bio">
     <span>Bio:</span>
     <span><%=@user.bio%></span>
-  </div>
+  </div><br>
  <div class="posts">
     <%@user.most_recent_post.each do |post|%>
       <div class="post-info">
-        <span>Post Title:<%=post.title%></span>
-        <span><%=post.text%></span><br>
-        <span>Comments:<%=post.comments_counter%> Likes:<%=post.likes_counter%></span>
+        <div>Post Title:<b><%=post.title%></b></div>
+        <div>Post Text:<%=post.text%></div>
+        <div>Comments:<%=post.comments_counter%> Likes:<%=post.likes_counter%></div><br>
       </div>
     <%end%>
   </div>
@@ -29,7 +29,7 @@
 
   <div>
     <h1>Add a New Post</h1>
-    <%= form_with model:@post, url: user_posts_path(:author_id) do |form|%>
+    <%= form_with model: @post, url: user_posts_path(:author_id) do |form|%>
       <%= form.text_field :title, placeholder: "Add Title"%>
       <%= form.text_field :text, placeholder: "Add Text"%>
       <%=form.submit%>
