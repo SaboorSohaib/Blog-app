@@ -13,7 +13,7 @@
   
     <div class="post-content">
       <%=@user.posts.each do |post|%>
-       <%= link_to post.title, "/users/#{@user.id}/posts/#{post.id}" %>
+       <b><%= link_to post.title, "/users/#{@user.id}/posts/#{post.id}" %></b>
        <div><%=post.text%></div>
        <div>Comments:<%=post.comments_counter%></div> <div>Likes:<%=post.likes_counter%></div>
        <div>
