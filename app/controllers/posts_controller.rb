@@ -24,6 +24,19 @@ class PostsController < ApplicationController
 
     redirect_to user_posts_path
   end
+  # def create
+  #   @post = Post.new(post_params)
+  #   @post.author_id = current_user.id
+  #   @post.likes_counter = 0
+  #   @post.comments_counter = 0
+  #   return unless @post.save
+
+  #   redirect_to posts_new_path
+  # end
+
+  # def new
+  #   @post = Post.new
+  # end
 
   private
 
