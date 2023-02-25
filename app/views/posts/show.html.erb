@@ -5,10 +5,10 @@
         <p><%=@post.text%></p>
     </div>
     <div class="post-comment-likes">
-        <%comments = Comment.where(posts_id: @post.id)%>
+        <%comments = Comment.where(post_id: @post.id)%>
         <%comments.each do |comment|%>
             <span><%user = User.find_by(id: comment.author_id).name%></span>
-            <span><%=user%>: <%=comment.text%></span>
+            <div><%=user%>: <%=comment.text%></div>
         <%end%>
     </div>
 

@@ -10,7 +10,7 @@ RSpec.describe 'UsersController', type: :request do
       expect(response).to render_template(:index)
     end
     it "renders 'index' body" do
-      expect(response.body).to include('List All Users')
+      expect(response.body).to include('<h1>list all users<h1>')
     end
   end
 

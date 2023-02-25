@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Like, type: :model do
   describe 'Like Model Test' do
-    subject { Like.new(author_id: 5, posts_id: 5) }
+    subject { Like.new(author_id: 5, post_id: 5) }
     before { subject.save }
 
     it 'The author_id should be number' do
@@ -15,13 +15,13 @@ RSpec.describe Like, type: :model do
       expect(id).to be == 5
     end
 
-    it 'The posts_id should be number' do
-      subject.posts_id = 'bbb'
+    it 'The post_id should be number' do
+      subject.post_id = 'bbb'
       expect(subject).to_not be_valid
     end
 
-    it 'The posts_id should be integer' do
-      id = subject.posts_id = 5
+    it 'The post_id should be integer' do
+      id = subject.post_id = 5
       expect(id).to be == 5
     end
   end
