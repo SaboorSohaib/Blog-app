@@ -12,11 +12,11 @@ second_post = Post.create(author_id: first_user, title: 'Hello', text: 'This is 
 third_post = Post.create(author_id: first_user, title: 'Hello', text: 'This is my third post')
 fourth_post = Post.create(author_id: first_user, title: 'Hello', text: 'This is my fourth post')
 
-Comment.create(posts_id: first_post, author_id: first_user, text: 'Hi Tom!' )
-Comment.create(posts_id: first_post, author_id: first_user, text: 'Hi Ali!' )
-Comment.create(posts_id: second_post, author_id: first_user, text: 'Hi Abid!' )
-Comment.create(posts_id: second_post, author_id: first_user, text: 'Hi Omar!' )
-Comment.create(posts_id: third_post, author_id: first_user, text: 'Hi Rashid!' )
-Comment.create(posts_id: fourth_post, author_id: first_user, text: 'Hi Sohaib!' )
+Comment.create(post_id: first_post, author_id: first_user, text: 'Hi Tom!' )
+Comment.create(post_id: first_post, author_id: first_user, text: 'Hi Ali!' )
+Comment.create(post_id: second_post, author_id: first_user, text: 'Hi Abid!' )
+Comment.create(post_id: second_post, author_id: first_user, text: 'Hi Omar!' )
+Comment.create(post_id: third_post, author_id: first_user, text: 'Hi Rashid!' )
+Comment.create(post_id: fourth_post, author_id: first_user, text: 'Hi Sohaib!' )
 
 
