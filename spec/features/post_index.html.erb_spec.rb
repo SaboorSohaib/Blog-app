@@ -51,5 +51,14 @@ RSpec.describe 'PostIndex', type: :feature do
     it 'dispaly post likes counter' do
       expect(page).to have_content(@post1.likes_counter)
     end
+
+    it 'dsipaly post author' do 
+      expect(page).to have_content(@post1.author_id)
+    end
+
+    it 'redirect to post show page' do
+      click_link @post1.title
+      expect(page).to have_current_path user_post_path(@user1, @post1)
+    end
   end
 end

@@ -44,5 +44,17 @@ RSpec.describe 'PostShow', type: :feature do
       expect(page).to have_content(@comment2.text)
       expect(page).to have_content(@comment1.text)
     end
+
+    it 'show post author name' do
+      expect(page).to have_content(@post1.author_id)
+    end
+
+    it 'show post title' do 
+      expect(page).to have_content(@post1.title)
+    end
+
+    it 'show post likes counter' do 
+      expect(page).to have_content(@post1.likes_counter)
+    end
   end
 end
