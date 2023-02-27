@@ -15,7 +15,8 @@
  <div class="posts">
     <%@user.most_recent_post.each do |post|%>
       <div class="post-info">
-        <div>Post Title:<b><%=post.title%></b></div>
+        <span>Post Title:</span>
+        <%= link_to post.title, "/users/#{@user.id}/posts/#{post.id}" %></b>
         <div>Post Text:<%=post.text%></div>
         <div>Comments:<%=post.comments_counter%> Likes:<%=post.likes_counter%></div><br>
       </div>

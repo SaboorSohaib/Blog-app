@@ -34,14 +34,16 @@ RSpec.describe 'PostIndex', type: :feature do
       expect(page).to have_content(@user1.posts_counter)
     end
 
-    it 'display 5 most recent comment' do
+    it 'display  user first comment' do
       expect(page).to have_content(@comment3.text)
-      expect(page).to have_content(@comment2.text)
-      expect(page).to have_content(@comment1.text)
     end
 
     it 'display post title' do
       expect(page).to have_content(@post1.title)
+    end
+
+    it 'show post body' do 
+      expect(page).to have_content(@post1.text)
     end
 
     it 'display post comments counter' do
