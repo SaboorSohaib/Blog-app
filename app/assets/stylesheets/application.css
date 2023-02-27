@@ -14,3 +14,28 @@
  *= require_self
 <<<<<<< HEAD
  */
+
+ .container{
+    display: flex;
+ }
+
+ .user-info {
+    display: flex;
+    gap: 20px;
+ }
+
+ .user-name{
+    display: flex;
+    border: 2px solid black;
+    padding: 10px;
+    gap: 20px;
+ }
+
+.user-img {
+    border: 2px solid black;
+    width: 100px;
+ }
+
+.posts-number {
+    margin-top: 30px;
+}

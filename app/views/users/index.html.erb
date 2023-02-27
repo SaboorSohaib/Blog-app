@@ -1,12 +1,12 @@
 <section class="container">
   <%@users.each do |user| %>
       <div class="user-info">
-          <div>
+          <div class="user-img">
               <img src=<%= user.photo %> >
           </div>
-          <div>
+          <div class="user-name">
                <%= link_to user.name, "/users/#{user.id}", class: "user" %>
-              <span>Number of Posts:</span><%=user.posts_counter%><br>
+              <div class="posts-number">Number of Posts:<%=user.posts_counter%></div><br>
           </div>
       </div>
   <%end%>
