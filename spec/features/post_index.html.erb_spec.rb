@@ -23,33 +23,33 @@ RSpec.describe 'PostIndex', type: :feature do
     end
 
     it 'dispalys the user name' do
-        expect(page).to have_content(@user1.name)
+      expect(page).to have_content(@user1.name)
     end
-  
+
     it 'dispalys user image' do
-        expect(page).to have_css("img[src='https://unsplash.com/photos/WNoLnJo7tS8']")
+      expect(page).to have_css("img[src='https://unsplash.com/photos/WNoLnJo7tS8']")
     end
-  
+
     it 'display user number of post' do
-        expect(page).to have_content(@user1.posts_counter)
+      expect(page).to have_content(@user1.posts_counter)
     end
-    
-    it 'display 5 most recent comment' do 
-        expect(page).to have_content(@comment3.text)
-        expect(page).to have_content(@comment2.text)
-        expect(page).to have_content(@comment1.text)
+
+    it 'display 5 most recent comment' do
+      expect(page).to have_content(@comment3.text)
+      expect(page).to have_content(@comment2.text)
+      expect(page).to have_content(@comment1.text)
     end
 
     it 'display post title' do
-        expect(page).to have_content(@post1.title)
+      expect(page).to have_content(@post1.title)
     end
 
-    it 'display post comments counter' do 
-        expect(page).to have_content(@post1.comments_counter)
+    it 'display post comments counter' do
+      expect(page).to have_content(@post1.comments_counter)
     end
 
     it 'dispaly post likes counter' do
-        expect(page).to have_content(@post1.likes_counter)
+      expect(page).to have_content(@post1.likes_counter)
     end
   end
 end
