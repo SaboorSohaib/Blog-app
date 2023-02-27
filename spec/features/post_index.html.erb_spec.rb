@@ -52,7 +52,7 @@ RSpec.describe 'PostIndex', type: :feature do
       expect(page).to have_content(@post1.likes_counter)
     end
 
-    it 'dsipaly post author' do 
+    it 'dsipaly post author' do
       expect(page).to have_content(@post1.author_id)
     end
 
