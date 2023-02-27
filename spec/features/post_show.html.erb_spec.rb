@@ -25,24 +25,24 @@ RSpec.describe 'PostShow', type: :feature do
       visit user_posts_path(@user1, @post1)
     end
 
-    it 'show post text' do 
-        expect(page).to have_content(@post1.text)
+    it 'show post text' do
+      expect(page).to have_content(@post1.text)
     end
 
     it 'show comments counter' do
-        expect(page).to have_content(@post1.comments_counter)
-    end
-    
-    it 'show commenter name' do 
-        expect(page).to have_content(@user1.name)
-        expect(page).to have_content(@user2.name)
+      expect(page).to have_content(@post1.comments_counter)
     end
 
-    it 'show post comment text' do 
-        expect(page).to have_content(@comment4.text)
-        expect(page).to have_content(@comment3.text)
-        expect(page).to have_content(@comment2.text)
-        expect(page).to have_content(@comment1.text)
+    it 'show commenter name' do
+      expect(page).to have_content(@user1.name)
+      expect(page).to have_content(@user2.name)
+    end
+
+    it 'show post comment text' do
+      expect(page).to have_content(@comment4.text)
+      expect(page).to have_content(@comment3.text)
+      expect(page).to have_content(@comment2.text)
+      expect(page).to have_content(@comment1.text)
     end
   end
 end
