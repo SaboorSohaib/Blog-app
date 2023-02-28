@@ -15,17 +15,17 @@
  <div class="posts">
     <%@user.most_recent_post.each do |post|%>
       <div class="post-info">
-        <div>Post Title:<b><%=post.title%></b></div>
+        <span>Post Title:</span>
+        <%= link_to post.title, "/users/#{@user.id}/posts/#{post.id}" %></b>
         <div>Post Text:<%=post.text%></div>
         <div>Comments:<%=post.comments_counter%> Likes:<%=post.likes_counter%></div><br>
       </div>
     <%end%>
   </div>
   <%= link_to "/users/#{@user.id}/posts" do %>
-    <button type="button" class="all-posts">See all posts</button>
+    <button type="button" class="all-posts">See All Posts</button>
   <% end %>
-   <%= link_to user_posts_path(@user)  do %>
+    <%= link_to user_posts_path(@user)  do %>
     <button type="button" class="new-post-btn">Create a New Post</button>
   <% end %>
-
 </section>
