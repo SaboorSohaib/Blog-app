@@ -1,4 +1,11 @@
 <section class="container">
+<section class="usersContainer">
+<% if user_signed_in? %>
+<%= button_to(
+        "Log Out",
+        destroy_user_session_path,
+        method: :delete
+      ) %>
   <%@users.each do |user| %>
       <div class="user-info">
           <div class="user-img">
@@ -10,4 +17,7 @@
           </div>
       </div>
   <%end%>
+   <% else %>
+  <a href='users/sign_in'> Sign In </a>
+  <% end %>
 </section>

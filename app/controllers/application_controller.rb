@@ -1,3 +1,3 @@
 class ApplicationController < ActionController::Base
-  def current_user; end
+  before_action :authenticate_user!
 end
