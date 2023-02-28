@@ -47,3 +47,13 @@
 .post-content {
   margin-top: 15px;
 }
+
+.log-in{
+  text-align: center;
+}
+
+.log-in-section{
+  display: flex;
+  justify-content: center;
+}
+
