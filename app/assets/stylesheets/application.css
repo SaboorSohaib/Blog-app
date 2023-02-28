@@ -48,12 +48,11 @@
   margin-top: 15px;
 }
 
-.log-in{
+.log-in {
   text-align: center;
 }
 
-.log-in-section{
+.log-in-section {
   display: flex;
   justify-content: center;
 }
-
