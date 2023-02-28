@@ -18859,3 +18859,105 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 439ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 2748)
 
 
+Started GET "/" for 127.0.0.1 at 2023-02-28 18:34:55 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 22ms (ActiveRecord: 0.0ms | Allocations: 2291)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-02-28 18:34:56 +0430
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 19.9ms | Allocations: 781)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 31.4ms | Allocations: 3486)
+  Rendered layout layouts/application.html.erb (Duration: 165.3ms | Allocations: 23111)
+Completed 200 OK in 247ms (Views: 173.0ms | ActiveRecord: 11.1ms | Allocations: 34640)
+
+
+Started GET "/users/confirmation/new" for 127.0.0.1 at 2023-02-28 18:35:03 +0430
+Processing by Devise::ConfirmationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/confirmations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 219)
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 249)
+  Rendered devise/confirmations/new.html.erb within layouts/application (Duration: 10.8ms | Allocations: 1727)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 2769)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.0ms | Allocations: 3534)
+
+
+Started GET "/users/confirmation/new" for 127.0.0.1 at 2023-02-28 18:37:39 +0430
+Processing by Devise::ConfirmationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/confirmations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 185)
+  Rendered devise/confirmations/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1014)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 1998)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 2316)
+
+
+Started POST "/users/confirmation" for 127.0.0.1 at 2023-02-28 18:37:43 +0430
+Processing by Devise::ConfirmationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"heamt@gmail.com"}, "commit"=>"Resend confirmation instructions"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."unconfirmed_email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["unconfirmed_email", "heamt@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "heamt@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "confirmation_token" = $2, "confirmation_sent_at" = $3 WHERE "users"."id" = $4[0m  [["updated_at", "2023-02-28 14:07:43.195013"], ["confirmation_token", "[FILTERED]"], ["confirmation_sent_at", "2023-02-28 14:07:43.194601"], ["id", 5]]
+  [1m[36mTRANSACTION (75.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 26.2ms | Allocations: 289)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 34.3ms
+Delivered mail 63fe0aaf6949e_ef3238e0766b6@sohaib.mail (129.6ms)
+Date: Tue, 28 Feb 2023 18:37:43 +0430
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: heamt@gmail.com
+Message-ID: <63fe0aaf6949e_ef3238e0766b6@sohaib.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome heamt@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=M3P5XfoRxzJnpXHy1feL">Confirm my account</a></p>
+
+Redirected to http://127.0.0.1:3000/users/sign_in
+Completed 303 See Other in 507ms (ActiveRecord: 78.3ms | Allocations: 42451)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-02-28 18:37:43 +0430
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 187)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 1289)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 2286)
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.0ms | Allocations: 2923)
+
+
+Started GET "/users/confirmation?confirmation_token=[FILTERED]" for ::1 at 2023-02-28 18:37:47 +0430
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."confirmation_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["confirmation_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "confirmed_at" = $2 WHERE "users"."id" = $3[0m  [["updated_at", "2023-02-28 14:07:47.523057"], ["confirmed_at", "2023-02-28 14:07:47.522397"], ["id", 5]]
+  [1m[36mTRANSACTION (443.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 465ms (ActiveRecord: 445.3ms | Allocations: 4987)
+
+
+Started GET "/users/sign_in" for ::1 at 2023-02-28 18:37:48 +0430
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 187)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1285)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 2261)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 2894)
+
+
