@@ -31,7 +31,7 @@ RSpec.describe 'users/show.html.rb', type: :feature do
     it 'display user number of post' do
       expect(page).to have_content(@user1.posts_counter)
     end
-    
+
     it 'show user bio' do
       expect(page).to have_content(@user1.bio)
     end

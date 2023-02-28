@@ -42,7 +42,7 @@ RSpec.describe 'PostIndex', type: :feature do
       expect(page).to have_content(@post1.title)
     end
 
-    it 'show post body' do 
+    it 'show post body' do
       expect(page).to have_content(@post1.text)
     end
 
