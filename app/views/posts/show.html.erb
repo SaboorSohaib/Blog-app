@@ -9,6 +9,9 @@
         <%comments.each do |comment|%>
             <span><%user = User.find_by(id: comment.author_id).name%></span>
             <div><%=user%>: <%=comment.text%></div>
+        <%if can? :destroy, comment%>
+          <%= button_to "Delete Comment", user_post_comments_path(comment.author_id, comment.post, comment), method: :delete, data: {turbo: false}%>
+        <%end%>
         <%end%>
     </div>
 
@@ -23,3 +26,7 @@
         <%end%>
     </div>
 </section>
+
+<%if can? :destroy, @post%>
+    <%= button_to "Delete A Post", user_posts_path(@post.author_id, @post.id), method: :delete, data: {turbo: false}%>
+<%end%>

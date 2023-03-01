@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
   def create
     user = current_user
     @comment = Comment.new(
@@ -9,5 +10,10 @@ class CommentsController < ApplicationController
     return unless @comment.save
 
     redirect_to request.original_url
+  end
+
+  def destroy
+    Comment.delete(params[:id])
+    redirect_to user_post_path(params[:user_id], params[post_id])
   end
 end
