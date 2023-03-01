@@ -25,9 +25,9 @@
 </section>
 
 <%if can? :destroy, @post%>
-    <%= button_to "Delete A Post", user_posts_path(@post.author_id, @post.id, method: :delete, data: {turbo: false})%>
+    <%= button_to "Delete A Post", user_posts_path(@post.author_id, @post.id), method: :delete, data: {turbo: false}%>
 <%end%>
 
-<%if can? :destroy, @post%>
-    <%= button_to "Delete A Post", user_posts_path(@post.author_id, @post.id, method: :delete, data: {turbo: false})%>
+<%if can? :destroy, comment%>
+    <%= button_to "Delete Comment", user_post_comments_path(comment.author_id, comment.post, comment), method: :delete, data: {turbo: false}%>
 <%end%>
