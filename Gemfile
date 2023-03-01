@@ -25,8 +25,8 @@ gem 'turbo-rails'
 gem 'stimulus-rails'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem 'devise'
 gem 'cancancan'
+gem 'devise'
 gem 'jbuilder'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -61,7 +61,6 @@ group :development do
   gem 'bullet'
   gem 'letter_opener'
   gem 'web-console'
-
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
