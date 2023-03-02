@@ -21388,3 +21388,71 @@ puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
 puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
 puma (5.6.5) lib/puma/server.rb:443:in `process_client'
 puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2023-03-02 16:03:20 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:9
+  Rendered users/index.html.erb within layouts/application (Duration: 8.6ms | Allocations: 1763)
+  Rendered layout layouts/application.html.erb (Duration: 77.2ms | Allocations: 21095)
+Completed 200 OK in 143ms (Views: 82.4ms | ActiveRecord: 9.1ms | Allocations: 37551)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2023-03-02 16:03:24 +0430
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 70ms (ActiveRecord: 0.9ms | Allocations: 4130)
+
+
+Started GET "/" for 127.0.0.1 at 2023-03-02 16:03:24 +0430
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms | Allocations: 345)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-03-02 16:03:24 +0430
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.1ms | Allocations: 775)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 18.3ms | Allocations: 3187)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 4236)
+Completed 200 OK in 30ms (Views: 26.7ms | ActiveRecord: 0.0ms | Allocations: 5486)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-03-02 16:03:31 +0430
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"heamt@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "heamt@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 573ms (ActiveRecord: 0.6ms | Allocations: 3586)
+
+
+Started GET "/" for 127.0.0.1 at 2023-03-02 16:03:32 +0430
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:9
+  Rendered users/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1069)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 2053)
+Completed 200 OK in 16ms (Views: 10.6ms | ActiveRecord: 1.2ms | Allocations: 3717)
+
+
+Started GET "/users/" for 127.0.0.1 at 2023-03-02 16:03:43 +0430
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:9
+  Rendered users/index.html.erb within layouts/application (Duration: 7.9ms | Allocations: 1062)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 2045)
+Completed 200 OK in 24ms (Views: 14.4ms | ActiveRecord: 1.4ms | Allocations: 3689)
+
+
