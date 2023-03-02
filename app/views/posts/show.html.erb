@@ -1,32 +1,50 @@
-<section>
-    <div class="post-content">
-        <span><%=@post.title%> By <%=@user.name%></span>
-        <div>Comments:<%=@post.comments_counter%></div> <div>Likes:<%=@post.likes_counter%></div>
-        <p><%=@post.text%></p>
+<div class="post-container">
+  <div class="post-details border">
+    <div class="post-header">
+      <h3>
+        Post #<%= @post.id %> by <%= @user.name %>
+      </h3>
+      <p>
+        Comments: <%= @post.comments_counter %> , Likes: <%= @post.likes_counter %>
+      </p>
     </div>
-    <div class="post-comment-likes">
-        <%comments = Comment.where(post_id: @post.id)%>
-        <%comments.each do |comment|%>
-            <span><%user = User.find_by(id: comment.author_id).name%></span>
-            <div><%=user%>: <%=comment.text%></div>
-        <%if can? :destroy, comment%>
-          <%= button_to "Delete Comment", user_post_comments_path(comment.author_id, comment.post, comment), method: :delete, data: {turbo: false}%>
-        <%end%>
-        <%end%>
-    </div>
+    <p>
+      <%= @post.text %>
+    </p>
+  </div>
 
-    <%=form_with model: @comment, url: user_post_comments_path(@user.id, @post.id) do |form|%>
-        <%=form.text_area :text%>
-        <%=form.submit "Add Comment"%>
-    <%end%>
+  <div class="post-comments border">
+    <% if @post.comments.empty? %>
+      <p>No comments.</p>
+    <% else %>
+      <% @post.comments.each do |comment| %>
+        <p><%= comment.author.name %>: <%= comment.text %></p>
+        <% if can? :destroy, @post %>
+          <%= button_to 'Delete Comment', user_post_comment_path(@user, @post, comment),
+          method: :delete, data: { confirm: "Are you sure?"} %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="comment-like">
+    <div class="comment">
+      <%= link_to 'Comment', new_user_post_comment_path(@user, @post) %>
+    </div>
+    
+    <div>
+      <%= form_with url: user_post_likes_path(@post.author, @post), method: :post do |form| %>
+        <%= form.submit "Like", class:"like-btn"%>
+      <% end %>
+    </div>
 
     <div>
-        <%=form_with model:@like, url: user_post_likes_path(@user.id, @post.id) do |form|%>
-            <%=form.submit "Like the Post"%>
-        <%end%>
+      <% if can? :destroy, @post %>
+        <%= button_to "Delete Post", user_post_path(@user.id), method: :delete, data: { confirm: "Delete?" } %>
+      <% end %>
     </div>
-</section>
+  </div>
 
-<%if can? :destroy, @post%>
-    <%= button_to "Delete A Post", user_posts_path(@post.author_id, @post.id), method: :delete, data: {turbo: false}%>
-<%end%>
+  <p><%= link_to 'Back', user_path(@user.id) %></p>
+
+</div>
