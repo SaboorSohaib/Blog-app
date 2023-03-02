@@ -1,28 +1,24 @@
-<section>
-  <div class="user-info">
-    <div class="user-img">
-        <img src=<%=@user.photo%> >
-    </div>
-    <div class="user-name">
-        <span><%=@user.name%></span><br>
-        <div class="posts-number">Number of Posts:<%=@user.posts_counter%></div>
-    </div>
-   
+<div class="user-specific-post">
+  <%= render partial: "users/user_info", locals: {user: @user} %>
+
+  <div class="post-info">
+    <% @user.posts.each do |post| %>
+      <%= link_to user_post_path(@user.id, post.id) do %>
+        <%= render partial: "users/user_post_card", locals: {post: post} %>
+      <% end %>
+    <% end %>
   </div>
-  
-    <div class="post-content">
-      <%=@user.posts.each do |post|%>
-       <b><%= link_to post.title, "/users/#{@user.id}/posts/#{post.id}" %></b>
-       <div><%=post.text%></div>
-       <div>Comments:<%=post.comments_counter%></div> <div>Likes:<%=post.likes_counter%></div>
-       <div>
-        <%post.most_recent_comment.includes(:author).each do |comment|%>
-        <span><%user = comment.author.name%></span>
-        <div><%=user%>: <%=comment.text%></div>
-        <%end%>
-       </div>
-    </div>
-      <%= link_to "Home", users_path %>
-        <button class="pagination">Pagination</button>
-      <%end%>
-</section>
+</div>
+
+<div class="new-post">
+  <p>Add another post</p>
+  <%= link_to 'Add New', new_user_post_url(@user) %>
+</div>
+
+<p>
+  <%= link_to 'Go Back', user_path(@user.id) %>
+</p>
+
+<div>
+    <p class="pagination">Pagination</p>
+</div>
