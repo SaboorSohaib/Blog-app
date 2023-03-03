@@ -17,11 +17,13 @@
 
 .container {
   display: flex;
+  gap: 10px;
 }
 
 .user-info {
   display: flex;
   gap: 20px;
+  margin: 10px;
 }
 
 .user-name {
