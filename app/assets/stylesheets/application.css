@@ -72,3 +72,8 @@
   display: flex;
   justify-content: center;
 }
+
+.user-bio {
+  border: 2px solid black;
+  border-radius: 10px;
+}
