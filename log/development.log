@@ -23170,3 +23170,55 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 21ms (Views: 8.9ms | ActiveRecord: 1.8ms | Allocations: 4055)
 
 
+Started GET "/" for 127.0.0.1 at 2023-03-15 11:52:25 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (27.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 20ms (ActiveRecord: 0.0ms | Allocations: 2132)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-03-15 11:52:26 +0430
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.5ms | Allocations: 781)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 41.0ms | Allocations: 3497)
+  Rendered layout layouts/application.html.erb (Duration: 404.3ms | Allocations: 22966)
+Completed 200 OK in 596ms (Views: 419.4ms | ActiveRecord: 130.4ms | Allocations: 35005)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-03-15 11:52:36 +0430
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"heamt@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (55.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "heamt@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 572ms (ActiveRecord: 56.2ms | Allocations: 5500)
+
+
+Started GET "/" for 127.0.0.1 at 2023-03-15 11:52:36 +0430
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:9
+  Rendered users/index.html.erb within layouts/application (Duration: 30.0ms | Allocations: 1512)
+  Rendered layout layouts/application.html.erb (Duration: 34.4ms | Allocations: 2571)
+Completed 200 OK in 46ms (Views: 36.8ms | ActiveRecord: 0.9ms | Allocations: 4616)
+
+
+Started GET "/" for 127.0.0.1 at 2023-03-15 11:53:11 +0430
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:9
+  Rendered users/index.html.erb within layouts/application (Duration: 13.1ms | Allocations: 1487)
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 2736)
+Completed 200 OK in 30ms (Views: 19.9ms | ActiveRecord: 4.5ms | Allocations: 4849)
+
+
+Started GET "/%3Cimg" for 127.0.0.1 at 2023-03-15 11:53:11 +0430
+  
+ActionController::RoutingError (No route matches [GET] "/%3Cimg"):
+  
