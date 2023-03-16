@@ -144,7 +144,7 @@ To run the project, execute the following command:
 - LinkedIn: [![abdul-saboor-sohaib](https://img.shields.io/badge/-AbdulSaboorSohaib-white?logo=LinkedIn&logoColor=181717&style=plastic)](https://www.linkedin.com/in/abdul-saboor-sohaib/)
 
 
-👤 **NEJJARI ABDELHAFID**
+👤 **Nejjari Abdelhafid**
 
 - GitHub: [ @Nejjari001](https://github.com/Nejjari001)
 - Twitter: [@AbdoNJ19](https://https//twitter.com/AbdoNJ19)
