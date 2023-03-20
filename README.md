@@ -95,6 +95,7 @@ In order to run this project you need:
  - Laptop/Desktop.
  - Internet.
  - Ruby.
+ - Rails.
  - Vs Code.
 
 ```
