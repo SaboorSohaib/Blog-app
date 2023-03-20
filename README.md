@@ -126,6 +126,7 @@ To run the project, execute the following command:
 ### Check Linter 
 
 - rubocop
+- npx stylelint "**/*.{css,scss}"
 
 ### Deployment
 
