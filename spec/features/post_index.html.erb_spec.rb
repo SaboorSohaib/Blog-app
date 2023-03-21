@@ -4,7 +4,7 @@ RSpec.describe 'PostIndex', type: :feature do
   describe 'Post Index page' do
     before(:each) do
       @user1 = User.create!(name: 'Ali', photo: 'https://unsplash.com/photos/WNoLnJo7tS8', posts_counter: 4,
-                            bio: 'developer')
+                            bio: 'Developer')
       visit root_path
 
       @post1 = Post.create!(title: 'Football', text: 'I like football', comments_counter: 4,
