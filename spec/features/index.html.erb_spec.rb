@@ -4,7 +4,7 @@ RSpec.describe 'users/index.html.erb', type: :feature do
   describe 'Index page' do
     before(:each) do
       @user1 = User.create!(name: 'Ali', photo: 'https://unsplash.com/photos/WNoLnJo7tS8', posts_counter: 4,
-                            bio: 'developer')
+                            bio: 'Developer')
       @user2 = User.create!(name: 'Abid', photo: 'https://unsplash.com/photos/WNoLnJo7tS8', posts_counter: 5,
                             bio: 'Engineer')
     end
