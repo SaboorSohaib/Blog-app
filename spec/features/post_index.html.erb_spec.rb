@@ -9,7 +9,7 @@ RSpec.describe 'PostIndex', type: :feature do
 
       @post1 = Post.create!(title: 'Football', text: 'I like football', comments_counter: 4,
                             likes_counter: 4, author_id: @user1.id)
-      @post2 = Post.create!(title: 'Criket', text: 'He likes criket', comments_counter: 4,
+      @post2 = Post.create!(title: 'Cricket', text: 'He likes criket', comments_counter: 4,
                             likes_counter: 4, author_id: @user1.id)
       @post3 = Post.create!(title: 'Tennis', text: 'He likes tennis', comments_counter: 4,
                             likes_counter: 4, author_id: @user1.id)
