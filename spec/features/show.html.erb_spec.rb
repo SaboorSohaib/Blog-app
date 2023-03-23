@@ -36,13 +36,13 @@ RSpec.describe 'users/show.html.rb', type: :feature do
       expect(page).to have_content(@user1.bio)
     end
 
-    it 'dsiplay 3 most recent post' do
+    it 'Dsiplay 3 most recent post' do
       expect(page).to have_content(@post3.title)
       expect(page).to have_content(@post2.title)
       expect(page).to have_content(@post1.title)
     end
 
-    it 'display button to see all posts' do
+    it 'Display button to see all posts' do
       expect(page).to have_link('See All Posts')
     end
 
