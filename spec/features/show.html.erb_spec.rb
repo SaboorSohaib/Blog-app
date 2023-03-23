@@ -20,15 +20,15 @@ RSpec.describe 'users/show.html.rb', type: :feature do
       visit user_path(@user1.id)
     end
 
-    it 'dispalys the user name' do
+    it 'Dispaly the user name' do
       expect(page).to have_content(@user1.name)
     end
 
-    it 'dispalys user image' do
+    it 'Dispaly user image' do
       expect(page).to have_css("img[src='https://unsplash.com/photos/WNoLnJo7tS8']")
     end
 
-    it 'display user number of post' do
+    it 'Display user number of post' do
       expect(page).to have_content(@user1.posts_counter)
     end
 
