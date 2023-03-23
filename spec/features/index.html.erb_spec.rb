@@ -9,19 +9,19 @@ RSpec.describe 'users/index.html.erb', type: :feature do
                             bio: 'Engineer')
     end
 
-    it 'dispalys the user name' do
+    it 'Dispaly the user name' do
       visit users_path
       expect(page).to have_content(@user1.name)
       expect(page).to have_content(@user2.name)
     end
 
-    it 'dispalys user image' do
+    it 'Dispaly user image' do
       visit users_path
       expect(page).to have_css("img[src='https://unsplash.com/photos/WNoLnJo7tS8']")
       expect(page).to have_css("img[src='https://unsplash.com/photos/WNoLnJo7tS8']")
     end
 
-    it 'display user number of post' do
+    it 'Display user number of post' do
       visit users_path
       expect(page).to have_content(@user1.posts_counter)
       expect(page).to have_content(@user2.posts_counter)
