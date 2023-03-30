@@ -24,5 +24,9 @@ RSpec.describe Like, type: :model do
       id = subject.post_id = 5
       expect(id).to be == 5
     end
+
+    it 'can not update comments counter method' do
+        expect(subject).to respond_to(:update_likes_counter)
+    end
   end
 end

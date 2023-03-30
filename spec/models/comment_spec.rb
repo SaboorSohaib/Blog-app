@@ -29,5 +29,9 @@ RSpec.describe Comment, type: :model do
       id = subject.post_id = 2
       expect(id).to be == 2
     end
+
+    it 'can not update comments counter method' do
+        expect(subject).to respond_to(:update_comments_counter)
+    end
   end
 end
