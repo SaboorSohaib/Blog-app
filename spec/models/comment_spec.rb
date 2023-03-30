@@ -31,7 +31,7 @@ RSpec.describe Comment, type: :model do
     end
 
     it 'can update comments counter' do
-        expect(subject).to respond_to(:update_comments_counter)
+      expect(subject).to respond_to(:update_comments_counter)
     end
   end
 end

@@ -26,7 +26,7 @@ RSpec.describe Like, type: :model do
     end
 
     it 'can update likes counter' do
-        expect(subject).to respond_to(:update_likes_counter)
+      expect(subject).to respond_to(:update_likes_counter)
     end
   end
 end

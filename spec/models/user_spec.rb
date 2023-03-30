@@ -26,5 +26,5 @@ RSpec.describe User, type: :model do
 
   it 'can display most recent posts' do
     expect(subject).to respond_to(:most_recent_posts)
-  end 
+  end
 end
