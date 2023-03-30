@@ -23,4 +23,8 @@ RSpec.describe User, type: :model do
   it ' Should test posts_counter to be >= 0' do
     expect(subject.posts_counter).to be >= 0
   end
+
+  it 'can display most recent posts' do
+    expect(subject).to respond_to(:most_recent_posts)
+  end 
 end
