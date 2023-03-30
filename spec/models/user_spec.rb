@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { User.new(name: 'Ali', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher', posts_counter: 10) }
-
+  subject { User.new(name: 'Ali', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher', posts_counter: 4) }
   before { subject.save }
 
   it 'The name should not be balnk' do
@@ -24,7 +23,8 @@ RSpec.describe User, type: :model do
     expect(subject.posts_counter).to be >= 0
   end
 
-  it 'can display most recent posts' do
-    expect(subject).to respond_to(:most_recent_posts)
+  it 'should display most recent posts' do
+    subject.posts_counter = 4
+    expect(subject.most_recent_posts).to eq(subject.posts.last(3))
   end
 end

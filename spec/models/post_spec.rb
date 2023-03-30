@@ -42,11 +42,13 @@ RSpec.describe Post, type: :model do
     expect(subject.likes_counter).to be >= 0
   end
 
-  it 'can update posts counter' do
-    expect(subject).to respond_to(:update_posts_counter)
+  it 'should diplay most recent comments' do
+    subject.comments_counter = 5
+    expect(subject.most_recent_comments).to eq(subject.comments.last(5))
   end
 
-  it 'can display most recent comments' do
-    expect(subject).to respond_to(:most_recent_comments)
+  it 'should display likes_counter' do
+    subject.likes_counter = 6
+    expect(subject.likes_counter).to eq(6)
   end
 end
