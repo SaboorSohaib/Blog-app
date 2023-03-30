@@ -1,26 +1,28 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-  subject { User.new(name: 'Ali', photo: 'Ali photo', bio: 'Teacher', posts_counter: 10) }
+RSpec.describe Like, type: :model do
+  describe 'Like Model Test' do
+    subject { Like.new(author_id: 5, post_id: 5) }
+    before { subject.save }
 
-  before { subject.save }
+    it 'The author_id should be number' do
+      subject.author_id = 'aaa'
+      expect(subject).to_not be_valid
+    end
 
-  it 'The name should not be balnk' do
-    subject.name = nil
-    expect(subject).to_not be_valid
-  end
+    it 'The author_id should be integer' do
+      id = subject.author_id = 5
+      expect(id).to be == 5
+    end
 
-  it 'The posts_counter should be integer' do
-    subject.posts_counter = 'a'
-    expect(subject).to_not be_valid
-  end
+    it 'The post_id should be number' do
+      subject.post_id = 'bbb'
+      expect(subject).to_not be_valid
+    end
 
-  it 'The posts_counter should be greater than or equal to zero' do
-    subject.posts_counter = -10
-    expect(subject).to_not be_valid
-  end
-
-  it ' Should test posts_counter to be >= 0' do
-    expect(subject.posts_counter).to be >= 0
+    it 'The post_id should be integer' do
+      id = subject.post_id = 5
+      expect(id).to be == 5
+    end
   end
 end
