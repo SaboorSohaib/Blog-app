@@ -1,5 +1,5 @@
 <div>
-  <%= post.title %>
+  <%= link_to post.title, "/users/#{@user.id}/posts/#{post.id}" %>
   <div><%= post.text %></div>  
   <div>Comments: <%= post.comments_counter %></div>
   <div>Likes: <%= post.likes_counter %></div>
