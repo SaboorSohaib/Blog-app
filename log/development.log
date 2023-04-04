@@ -1950,3 +1950,192 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 66ms (Views: 7.4ms | ActiveRecord: 7.3ms | Allocations: 15452)
 
 
+Started GET "/" for 127.0.0.1 at 2023-04-04 13:56:04 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (91.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 25.0ms | Allocations: 1610)
+  Rendered layout layouts/application.html.erb (Duration: 25.6ms | Allocations: 1713)
+Completed 500 Internal Server Error in 250ms (ActiveRecord: 0.0ms | Allocations: 6944)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <section> 
+  <%= render  "shared/user" user: @user %>
+</section>
+):
+1:    <section> 
+2:      <%= render  "shared/user" user: @user %>
+3:    </section>
+  
+app/views/users/index.html.erb:2: syntax error, unexpected local variable or method, expecting ')'
+app/views/users/index.html.erb:2: syntax error, unexpected local variable or method, expecting ')'
+app/views/users/index.html.erb:2: syntax error, unexpected local variable or method, expecting ')'
+app/views/users/index.html.erb:2: syntax error, unexpected local variable or method, expecting ')'
+app/views/users/index.html.erb:2: syntax error, unexpected local variable or method, expecting ')'
+app/views/users/index.html.erb:2: syntax error, unexpected local variable or method, expecting ')'
+Started GET "/" for 127.0.0.1 at 2023-04-04 13:58:00 +0430
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (59.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/shared/_user.html.erb:3
+  Rendered shared/_user.html.erb (Duration: 197.0ms | Allocations: 14850)
+  Rendered users/index.html.erb within layouts/application (Duration: 198.5ms | Allocations: 15083)
+  Rendered layout layouts/application.html.erb (Duration: 855.6ms | Allocations: 48226)
+Completed 200 OK in 861ms (Views: 712.4ms | ActiveRecord: 146.6ms | Allocations: 49018)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-04 13:58:21 +0430
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1094)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1184)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1905)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <section> 
+  <%= render  "shared/user" user: @users %>
+</section>
+):
+1:    <section> 
+2:      <%= render  "shared/user" user: @users %>
+3:    </section>
+  
+app/views/users/index.html.erb:2: syntax error, unexpected local variable or method, expecting ')'
+app/views/users/index.html.erb:2: syntax error, unexpected local variable or method, expecting ')'
+app/views/users/index.html.erb:2: syntax error, unexpected local variable or method, expecting ')'
+app/views/users/index.html.erb:2: syntax error, unexpected local variable or method, expecting ')'
+app/views/users/index.html.erb:2: syntax error, unexpected local variable or method, expecting ')'
+app/views/users/index.html.erb:2: syntax error, unexpected local variable or method, expecting ')'
+Started GET "/" for 127.0.0.1 at 2023-04-04 13:58:53 +0430
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/shared/_user.html.erb:3
+  Rendered shared/_user.html.erb (Duration: 4.6ms | Allocations: 853)
+  Rendered users/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1085)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 3644)
+Completed 200 OK in 24ms (Views: 21.6ms | ActiveRecord: 0.6ms | Allocations: 4387)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-04 13:59:29 +0430
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/shared/_user.html.erb:3
+  Rendered shared/_user.html.erb (Duration: 6.4ms | Allocations: 845)
+  Rendered users/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 1075)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 3596)
+Completed 200 OK in 29ms (Views: 26.8ms | ActiveRecord: 0.7ms | Allocations: 4332)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-04 14:00:22 +0430
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/shared/_user.html.erb:3
+  Rendered shared/_user.html.erb (Duration: 3.2ms | Allocations: 849)
+  Rendered users/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1078)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 3611)
+Completed 200 OK in 21ms (Views: 18.9ms | ActiveRecord: 0.3ms | Allocations: 4347)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-04 14:02:10 +0430
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/shared/_user.html.erb:3
+  Rendered shared/_user.html.erb (Duration: 5.4ms | Allocations: 885)
+  Rendered users/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1114)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 3644)
+Completed 200 OK in 29ms (Views: 25.4ms | ActiveRecord: 0.6ms | Allocations: 4387)
+
+
+Started GET "/users/:user_id/posts" for 127.0.0.1 at 2023-04-04 14:02:13 +0430
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>":user_id"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 16.5ms | Allocations: 110)
+  Rendered layout layouts/application.html.erb (Duration: 23.7ms | Allocations: 2462)
+Completed 200 OK in 26ms (Views: 25.6ms | ActiveRecord: 0.0ms | Allocations: 3102)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-04 14:02:25 +0430
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/shared/_user.html.erb:3
+  Rendered shared/_user.html.erb (Duration: 5.6ms | Allocations: 663)
+  Rendered users/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 729)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 3005)
+Completed 200 OK in 21ms (Views: 19.4ms | ActiveRecord: 0.8ms | Allocations: 3275)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-04 14:03:03 +0430
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/shared/_user.html.erb:3
+  Rendered shared/_user.html.erb (Duration: 5.6ms | Allocations: 871)
+  Rendered users/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1101)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 3615)
+Completed 200 OK in 25ms (Views: 22.4ms | ActiveRecord: 0.7ms | Allocations: 4350)
+
+
+Started GET "/users/" for 127.0.0.1 at 2023-04-04 14:03:06 +0430
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/shared/_user.html.erb:3
+  Rendered shared/_user.html.erb (Duration: 3.1ms | Allocations: 663)
+  Rendered users/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 729)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 3005)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.4ms | Allocations: 3276)
+
+
+Started GET "/users/" for 127.0.0.1 at 2023-04-04 14:03:08 +0430
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/shared/_user.html.erb:3
+  Rendered shared/_user.html.erb (Duration: 7.1ms | Allocations: 663)
+  Rendered users/index.html.erb within layouts/application (Duration: 7.9ms | Allocations: 729)
+  Rendered layout layouts/application.html.erb (Duration: 22.7ms | Allocations: 3014)
+Completed 200 OK in 26ms (Views: 23.6ms | ActiveRecord: 0.9ms | Allocations: 3284)
+
+
+Started GET "/users/" for 127.0.0.1 at 2023-04-04 14:03:33 +0430
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/shared/_user.html.erb:3
+  Rendered shared/_user.html.erb (Duration: 6.6ms | Allocations: 876)
+  Rendered users/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 1105)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 3625)
+Completed 200 OK in 31ms (Views: 28.5ms | ActiveRecord: 0.5ms | Allocations: 4360)
+
+
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-04-04 14:03:35 +0430
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 107)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 2458)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.0ms | Allocations: 3013)
+
+
