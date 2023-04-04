@@ -1,2 +1,16 @@
-
+<section>
+  <main>
+   <div>
+      <%= @post.title%> By <%= @user.name %>
+      <div><%= @post.text %></div>
+      <div>Comments: <%= @post.comments_counter %></div>
+      <div>Likes: <%= @post.likes_counter%></div>
+   </div>
+   <div>
+      <% @post.most_recent_comments.each do |comment| %>
+                <p><%= comment.text %></p>
+      <% end %>
+   </div>
+  </main>
+<section>
 
