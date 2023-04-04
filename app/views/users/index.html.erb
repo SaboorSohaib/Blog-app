@@ -1,3 +1,5 @@
 <section> 
-  <%= render  "shared/user" %>
+  <% @users.each do |user| %>
+    <%= render  "user", user: user %>
+  <% end %>
 </section>

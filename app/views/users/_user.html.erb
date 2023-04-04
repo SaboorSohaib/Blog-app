@@ -1,14 +1,12 @@
 <section>
   <main>
-      <% @users.each do |user| %>
         <div>
           <%= image_tag user.photo , height: 300 %>
         <div>
         <div>
-            <%= link_to  user.name, "/users/#{user.id}/posts" %> <br>
+            <%= link_to  user.name, "/users/#{user.id}" %> <br>
             <span>Posts Counter:</span>
             <%= user.posts_counter %>
         </div>
-      <% end %>
   </main>
 </section>

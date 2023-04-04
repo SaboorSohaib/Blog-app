@@ -1,2 +1,19 @@
-<h1>This users show Page <%= @user %> </h1>
+<section>
+  <main>
+    <%= render "user", user: @user%>
+
+    <div>
+      <span>Bio:</span>
+      <%= @user.bio %>
+      <div>
+        <% @user.most_recent_posts.each do |post| %>
+          <%= link_to post.title, "/posts/#{post.id}" %>
+          <div><%= post.text %></div>  
+          <div>Comments: <%= post.comments_counter %></div>
+          <div>Likes: <%= post.likes_counter %></div>
+        <% end %>
+      </div>
+    <div>
+  </main>
+</section>
 
