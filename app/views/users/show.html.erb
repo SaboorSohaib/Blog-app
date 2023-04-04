@@ -7,13 +7,16 @@
       <%= @user.bio %>
       <div>
         <% @user.most_recent_posts.each do |post| %>
-          <%= link_to post.title, "/posts/#{post.id}" %>
+          <%= link_to post.title, "/users/#{@user.id}/posts/#{post.id}" %>
           <div><%= post.text %></div>  
           <div>Comments: <%= post.comments_counter %></div>
           <div>Likes: <%= post.likes_counter %></div>
         <% end %>
       </div>
     <div>
+    <%= link_to "/users/#{@user.id}/posts" do %>
+      <button>See All Posts</button>
+    <% end %>
   </main>
 </section>
 

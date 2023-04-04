@@ -1,2 +1,16 @@
-<h1>This posts index page <%= @user %></h1>
+<section>
+  <main>
+    <div>
+        <%= render "users/user", user:@user%>
+    </div>
+    <div>
+      <% @user.posts.each do |post| %>
+         <%= render "post", post: post %>
+      <% post.most_recent_comments.each do |comment| %>
+          <p><%= comment.text %></p>
+      <% end %>
+    <% end %>
+    </div>
+  </main>
+<section>
 
