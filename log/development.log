@@ -5436,3 +5436,58 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 27ms (Views: 17.9ms | ActiveRecord: 1.8ms | Allocations: 4334)
 
 
+Started GET "/" for 127.0.0.1 at 2023-04-04 15:46:20 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/_user.html.erb (Duration: 3.6ms | Allocations: 326)
+  Rendered users/index.html.erb within layouts/application (Duration: 40.8ms | Allocations: 5934)
+  Rendered layout layouts/application.html.erb (Duration: 181.0ms | Allocations: 38816)
+Completed 200 OK in 207ms (Views: 175.7ms | ActiveRecord: 11.4ms | Allocations: 44096)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-04-04 15:46:23 +0430
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 66)
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 38.3ms | Allocations: 6748)
+  Rendered layout layouts/application.html.erb (Duration: 47.2ms | Allocations: 9013)
+Completed 200 OK in 57ms (Views: 40.5ms | ActiveRecord: 8.7ms | Allocations: 11633)
+
+
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-04-04 15:46:25 +0430
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.6ms | Allocations: 85)
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/views/posts/index.html.erb:7
+  Rendered posts/_post.html.erb (Duration: 1.7ms | Allocations: 187)
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:9
+  Rendered posts/_post.html.erb (Duration: 0.2ms | Allocations: 33)
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 2], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:9
+  Rendered posts/_post.html.erb (Duration: 0.4ms | Allocations: 33)
+  [1m[36mComment Load (2.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 3], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:9
+  Rendered posts/_post.html.erb (Duration: 0.2ms | Allocations: 33)
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 4], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:9
+  Rendered posts/index.html.erb within layouts/application (Duration: 68.4ms | Allocations: 11946)
+  Rendered layout layouts/application.html.erb (Duration: 77.7ms | Allocations: 14297)
+Completed 200 OK in 88ms (Views: 71.0ms | ActiveRecord: 11.4ms | Allocations: 15449)
+
+
