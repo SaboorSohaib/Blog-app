@@ -1,0 +1,12 @@
+<section>
+  <main>
+        <div>
+          <%= image_tag user.photo , height: 300 %>
+        <div>
+        <div>
+            <%= link_to  user.name, "/users/#{user.id}" %> <br>
+            <span>Posts Counter:</span>
+            <%= user.posts_counter %>
+        </div>
+  </main>
+</section>

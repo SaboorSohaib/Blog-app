@@ -1,2 +1,5 @@
-<h1>Hi This is user index page <%= @users %></h1>
-
+<section> 
+  <% @users.each do |user| %>
+    <%= render  "user", user: user %>
+  <% end %>
+</section>
