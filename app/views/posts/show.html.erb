@@ -13,7 +13,7 @@
    </div>
 
    <div class="container">
-      <%= form_with model: @comment, url:post_path, method: :post do |f| %>
+      <%= form_with model: @comment, url: user_post_comments_path(@post, @user), method: :post do |f| %>
        <div class="comment-section">
          <%= f.text_area :text, placeholder: "Add Comment" %>
        <br/>
@@ -23,7 +23,7 @@
    </div>
 
    <div>
-      <%= form_with model: @like, url: like_path, method: :post do |f| %>
+      <%= form_with model: @like, url: user_post_likes_path(@post, @user), method: :post do |f| %>
           <%= f.submit "Like", class:'btn btn-primary' %>
       <% end %>
    </div>

@@ -15,8 +15,12 @@
       </div>
     <div>
   
-     <%= link_to "/users/#{@user.id}/posts" do %>
+    <%= link_to "/users/#{@user.id}/posts" do %>
       <button>See All Posts</button>
+    <% end %>
+
+    <%= link_to new_user_post_path(@user) do %>
+      <button>Create a Post</button>
     <% end %>
   </main>
 </section>
