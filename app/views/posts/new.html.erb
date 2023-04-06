@@ -1,6 +1,6 @@
 <section>
     <h1>Create New Post</h1>
-    <%= form_with model: @post, url: create_post_path, method: :post, scop: :post do |form| %>
+    <%= form_with model: @post, url: posts_create_path, method: :post, scop: :post do |form| %>
 
         <%= form.label :title %>
         <%= form.text_field :title %>
