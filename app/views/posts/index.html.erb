@@ -7,7 +7,7 @@
         <% @user.posts.each do |post| %>
             <%= render "post", post: post %>
             <% post.most_recent_comments.each do |comment| %>
-                <span><%= comment.text %></span>
+                <div><%= comment.text %></div>
             <% end %>
         <% end %>
         </div>
