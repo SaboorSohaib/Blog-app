@@ -34,7 +34,7 @@ class PostsController < ApplicationController
     @post.comments_counter = 0
     @post.likes_counter = 0
     return unless @post.save
-    redirect_to user_post_path
+    redirect_to user_posts_path
   end
 
   private

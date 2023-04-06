@@ -8,7 +8,23 @@
    </div>
    <div>
       <% @post.most_recent_comments.each do |comment| %>
-                <p><%= comment.text %></p>
+                <div><%= comment.text %></div>
+      <% end %>
+   </div>
+
+   <div class="container">
+      <%= form_with model: @comment, url:post_path, method: :post do |f| %>
+       <div class="comment-section">
+         <%= f.text_area :text, placeholder: "Add Comment" %>
+       <br/>
+          <%= f.submit "Comment", class:'btn btn-primary' %>
+       </div>
+      <% end %>
+   </div>
+
+   <div>
+      <%= form_with model: @like, url: like_path, method: :post do |f| %>
+          <%= f.submit "Like", class:'btn btn-primary' %>
       <% end %>
    </div>
   </main>
