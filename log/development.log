@@ -13301,3 +13301,199 @@ Processing by PostsController#new as HTML
 Completed 200 OK in 41ms (Views: 39.4ms | ActiveRecord: 0.0ms | Allocations: 7593)
 
 
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:51:13 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 18.4ms | Allocations: 3164)
+  Rendered layout layouts/application.html.erb (Duration: 167.3ms | Allocations: 45163)
+Completed 200 OK in 209ms (Views: 170.4ms | ActiveRecord: 6.1ms | Allocations: 55668)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-04-07 23:51:14 +0430
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 1.0ms | Allocations: 266)
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 15.9ms | Allocations: 1791)
+  Rendered layout layouts/application.html.erb (Duration: 39.4ms | Allocations: 7487)
+Completed 200 OK in 78ms (Views: 40.6ms | ActiveRecord: 8.8ms | Allocations: 15131)
+
+
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-04-07 23:51:17 +0430
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.4ms | Allocations: 79)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/views/posts/index.html.erb:7
+  Rendered posts/_post.html.erb (Duration: 8.6ms | Allocations: 189)
+  [1m[36mComment Load (62.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:9
+  Rendered posts/_post.html.erb (Duration: 0.3ms | Allocations: 33)
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 2], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:9
+  Rendered posts/_post.html.erb (Duration: 0.4ms | Allocations: 33)
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 3], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:9
+  Rendered posts/_post.html.erb (Duration: 0.2ms | Allocations: 35)
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 4], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:9
+  Rendered posts/_post.html.erb (Duration: 0.2ms | Allocations: 34)
+  [1m[36mComment Load (3.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 5], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:9
+  Rendered posts/_post.html.erb (Duration: 0.2ms | Allocations: 35)
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 6], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:9
+  Rendered posts/_post.html.erb (Duration: 0.3ms | Allocations: 36)
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 9], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:9
+  Rendered posts/index.html.erb within layouts/application (Duration: 321.5ms | Allocations: 14592)
+  Rendered layout layouts/application.html.erb (Duration: 338.5ms | Allocations: 20322)
+Completed 200 OK in 348ms (Views: 264.6ms | ActiveRecord: 75.8ms | Allocations: 21161)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-07 23:51:22 +0430
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:2
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 66)
+  Rendered users/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 887)
+  Rendered layout layouts/application.html.erb (Duration: 33.0ms | Allocations: 6568)
+Completed 200 OK in 36ms (Views: 34.5ms | ActiveRecord: 0.5ms | Allocations: 6904)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-04-07 23:51:24 +0430
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.5ms | Allocations: 66)
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 12.2ms | Allocations: 944)
+  Rendered layout layouts/application.html.erb (Duration: 40.5ms | Allocations: 6550)
+Completed 200 OK in 51ms (Views: 41.9ms | ActiveRecord: 2.0ms | Allocations: 7330)
+
+
+Started GET "/users/1/posts" for 127.0.0.1 at 2023-04-07 23:51:26 +0430
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:3:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 66)
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 1]]
+  ↳ app/views/posts/index.html.erb:7
+  Rendered posts/_post.html.erb (Duration: 1.7ms | Allocations: 35)
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:9
+  Rendered posts/_post.html.erb (Duration: 0.3ms | Allocations: 33)
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 2], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:9
+  Rendered posts/_post.html.erb (Duration: 0.3ms | Allocations: 33)
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 3], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:9
+  Rendered posts/_post.html.erb (Duration: 0.3ms | Allocations: 35)
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 4], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:9
+  Rendered posts/_post.html.erb (Duration: 0.2ms | Allocations: 34)
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 5], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:9
+  Rendered posts/_post.html.erb (Duration: 0.2ms | Allocations: 35)
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 6], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:9
+  Rendered posts/_post.html.erb (Duration: 0.3ms | Allocations: 36)
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 9], ["LIMIT", 5]]
+  ↳ app/views/posts/index.html.erb:9
+  Rendered posts/index.html.erb within layouts/application (Duration: 62.7ms | Allocations: 7053)
+  Rendered layout layouts/application.html.erb (Duration: 85.4ms | Allocations: 12633)
+Completed 200 OK in 94ms (Views: 81.7ms | ActiveRecord: 5.4ms | Allocations: 13401)
+
+
+Started GET "/users/1/posts/1" for 127.0.0.1 at 2023-04-07 23:51:28 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:7:in `show'
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 5]]
+  ↳ app/views/posts/show.html.erb:10
+  Rendered posts/show.html.erb within layouts/application (Duration: 13.9ms | Allocations: 2385)
+  Rendered layout layouts/application.html.erb (Duration: 39.0ms | Allocations: 7825)
+Completed 200 OK in 51ms (Views: 39.9ms | ActiveRecord: 1.6ms | Allocations: 9693)
+
+
+Started POST "/users/1/posts/1/comments" for 127.0.0.1 at 2023-04-07 23:51:29 +0430
+Processing by CommentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "text"=>"", "commit"=>"Comment", "user_id"=>"1", "post_id"=>"1"}
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.0ms | Allocations: 785)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: comment):
+  
+app/controllers/comments_controller.rb:18:in `comment_params'
+app/controllers/comments_controller.rb:7:in `create'
+Started GET "/users/1/posts/1" for 127.0.0.1 at 2023-04-07 23:51:29 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:7:in `show'
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (2.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 5]]
+  ↳ app/views/posts/show.html.erb:10
+  Rendered posts/show.html.erb within layouts/application (Duration: 11.1ms | Allocations: 2040)
+  Rendered layout layouts/application.html.erb (Duration: 28.1ms | Allocations: 7599)
+Completed 200 OK in 35ms (Views: 26.8ms | ActiveRecord: 3.4ms | Allocations: 8869)
+
+
+Started POST "/users/1/posts/1/likes" for 127.0.0.1 at 2023-04-07 23:51:31 +0430
+Processing by LikesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "commit"=>"Like", "user_id"=>"1", "post_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3:in `current_user'
+Completed 404 Not Found in 42ms (ActiveRecord: 0.3ms | Allocations: 2197)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post without an ID):
+  
+app/controllers/likes_controller.rb:7:in `create'
+Started GET "/users/1/posts/1" for 127.0.0.1 at 2023-04-07 23:51:31 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:7:in `show'
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 1], ["LIMIT", 5]]
+  ↳ app/views/posts/show.html.erb:10
+  Rendered posts/show.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2060)
+  Rendered layout layouts/application.html.erb (Duration: 31.0ms | Allocations: 7620)
+Completed 200 OK in 38ms (Views: 31.9ms | ActiveRecord: 1.2ms | Allocations: 8887)
+
+
