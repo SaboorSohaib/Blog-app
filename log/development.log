@@ -13210,3 +13210,94 @@ Processing by PostsController#new as HTML
 Completed 200 OK in 27ms (Views: 25.0ms | ActiveRecord: 0.0ms | Allocations: 7602)
 
 
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:44:53 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 21.0ms | Allocations: 3165)
+  Rendered layout layouts/application.html.erb (Duration: 164.5ms | Allocations: 44991)
+Completed 200 OK in 205ms (Views: 167.8ms | ActiveRecord: 6.9ms | Allocations: 55496)
+
+
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:45:07 +0430
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1185)
+  Rendered layout layouts/application.html.erb (Duration: 37.1ms | Allocations: 6889)
+Completed 200 OK in 43ms (Views: 40.5ms | ActiveRecord: 0.0ms | Allocations: 7639)
+
+
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:45:30 +0430
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1141)
+  Rendered layout layouts/application.html.erb (Duration: 38.8ms | Allocations: 6845)
+Completed 200 OK in 46ms (Views: 41.4ms | ActiveRecord: 0.0ms | Allocations: 7595)
+
+
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:45:44 +0430
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1150)
+  Rendered layout layouts/application.html.erb (Duration: 32.4ms | Allocations: 6853)
+Completed 200 OK in 36ms (Views: 34.6ms | ActiveRecord: 0.0ms | Allocations: 7596)
+
+
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:45:45 +0430
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 853)
+  Rendered layout layouts/application.html.erb (Duration: 121.5ms | Allocations: 6338)
+Completed 200 OK in 123ms (Views: 122.5ms | ActiveRecord: 0.0ms | Allocations: 6613)
+
+
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:46:29 +0430
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1149)
+  Rendered layout layouts/application.html.erb (Duration: 34.3ms | Allocations: 6889)
+Completed 200 OK in 40ms (Views: 38.3ms | ActiveRecord: 0.0ms | Allocations: 7631)
+
+
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:47:56 +0430
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1140)
+  Rendered layout layouts/application.html.erb (Duration: 33.2ms | Allocations: 6845)
+Completed 200 OK in 39ms (Views: 37.0ms | ActiveRecord: 0.0ms | Allocations: 7595)
+
+
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:48:08 +0430
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1122)
+  Rendered layout layouts/application.html.erb (Duration: 30.1ms | Allocations: 6826)
+Completed 200 OK in 37ms (Views: 34.7ms | ActiveRecord: 0.0ms | Allocations: 7576)
+
+
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:48:16 +0430
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1146)
+  Rendered layout layouts/application.html.erb (Duration: 35.6ms | Allocations: 6850)
+Completed 200 OK in 41ms (Views: 39.4ms | ActiveRecord: 0.0ms | Allocations: 7593)
+
+
