@@ -12968,3 +12968,245 @@ Processing by PostsController#new as HTML
 Completed 200 OK in 219ms (Views: 216.8ms | ActiveRecord: 0.0ms | Allocations: 8915)
 
 
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:37:06 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 25.4ms | Allocations: 1732)
+  Rendered layout layouts/application.html.erb (Duration: 26.0ms | Allocations: 1835)
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 8.5ms | Allocations: 12286)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <section>
+    <h1>Create New Post</h1>
+    <div class="row">
+        <%= form_with model: @post, url: user_posts_path, method: :post, scop: :post do |form| %>
+          <div class="col-md-6">
+            <%= form.label :title %>
+            <%= form.text_field :title %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :text %>
+            <%= form.text_area :text %>
+
+            <%= form.submit, class:'btn btn-primary' %>
+          </div>
+        <% end %>
+    </div>
+</section>
+):
+1:    <section>
+2:        <h1>Create New Post</h1>
+3:        <div class="row">
+4:            <%= form_with model: @post, url: user_posts_path, method: :post, scop: :post do |form| %>
+5:              <div class="col-md-6">
+6:                <%= form.label :title %>
+7:                <%= form.text_field :title %>
+8:              </div>
+9:              <div class="col-md-6">
+10:                <%= form.label :text %>
+11:                <%= form.text_area :text %>
+12:    
+13:                <%= form.submit, class:'btn btn-primary' %>
+14:              </div>
+15:            <% end %>
+16:        </div>
+17:    </section>
+  
+app/views/posts/new.html.erb:13: syntax error, unexpected label, expecting '='
+app/views/posts/new.html.erb:13: syntax error, unexpected label, expecting '='
+app/views/posts/new.html.erb:13: syntax error, unexpected label, expecting '='
+app/views/posts/new.html.erb:13: syntax error, unexpected label, expecting '='
+app/views/posts/new.html.erb:13: syntax error, unexpected label, expecting '='
+app/views/posts/new.html.erb:13: syntax error, unexpected label, expecting '='
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:38:06 +0430
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1210)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 1300)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 2028)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <section>
+    <h1>Create New Post</h1>
+    <div class="row">
+        <%= form_with model: @post, url: user_posts_path, method: :post, scop: :post do |form| %>
+          <div class="col-md-6">
+            <%= form.label :title %>
+            <%= form.text_field :title %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :text %>
+            <%= form.text_area :text %>
+
+            <%= form.submit, class = 'btn btn-primary' %>
+          </div>
+        <% end %>
+    </div>
+</section>
+):
+1:    <section>
+2:        <h1>Create New Post</h1>
+3:        <div class="row">
+4:            <%= form_with model: @post, url: user_posts_path, method: :post, scop: :post do |form| %>
+5:              <div class="col-md-6">
+6:                <%= form.label :title %>
+7:                <%= form.text_field :title %>
+8:              </div>
+9:              <div class="col-md-6">
+10:                <%= form.label :text %>
+11:                <%= form.text_area :text %>
+12:    
+13:                <%= form.submit, class = 'btn btn-primary' %>
+14:              </div>
+15:            <% end %>
+16:        </div>
+17:    </section>
+  
+app/views/posts/new.html.erb:13: syntax error, unexpected '='
+app/views/posts/new.html.erb:13: syntax error, unexpected '='
+app/views/posts/new.html.erb:13: syntax error, unexpected '='
+app/views/posts/new.html.erb:13: syntax error, unexpected '='
+app/views/posts/new.html.erb:13: syntax error, unexpected '='
+app/views/posts/new.html.erb:13: syntax error, unexpected '='
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:38:32 +0430
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1207)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 1296)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 2017)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <section>
+    <h1>Create New Post</h1>
+    <div class="row">
+        <%= form_with model: @post, url: user_posts_path, method: :post, scop: :post do |form| %>
+          <div class="col-md-6">
+            <%= form.label :title %>
+            <%= form.text_field :title %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :text %>
+            <%= form.text_area :text %>
+
+            <%= form.submit, class:'btn btn-primary' %>
+          </div>
+        <% end %>
+    </div>
+</section>
+):
+1:    <section>
+2:        <h1>Create New Post</h1>
+3:        <div class="row">
+4:            <%= form_with model: @post, url: user_posts_path, method: :post, scop: :post do |form| %>
+5:              <div class="col-md-6">
+6:                <%= form.label :title %>
+7:                <%= form.text_field :title %>
+8:              </div>
+9:              <div class="col-md-6">
+10:                <%= form.label :text %>
+11:                <%= form.text_area :text %>
+12:    
+13:                <%= form.submit, class:'btn btn-primary' %>
+14:              </div>
+15:            <% end %>
+16:        </div>
+17:    </section>
+  
+app/views/posts/new.html.erb:13: syntax error, unexpected label, expecting '='
+app/views/posts/new.html.erb:13: syntax error, unexpected label, expecting '='
+app/views/posts/new.html.erb:13: syntax error, unexpected label, expecting '='
+app/views/posts/new.html.erb:13: syntax error, unexpected label, expecting '='
+app/views/posts/new.html.erb:13: syntax error, unexpected label, expecting '='
+app/views/posts/new.html.erb:13: syntax error, unexpected label, expecting '='
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:39:19 +0430
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 39.3ms | Allocations: 10723)
+  Rendered layout layouts/application.html.erb (Duration: 207.8ms | Allocations: 52136)
+Completed 200 OK in 213ms (Views: 211.3ms | ActiveRecord: 0.0ms | Allocations: 52928)
+
+
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:41:14 +0430
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1136)
+  Rendered layout layouts/application.html.erb (Duration: 27.2ms | Allocations: 6842)
+Completed 200 OK in 31ms (Views: 29.7ms | ActiveRecord: 0.0ms | Allocations: 7592)
+
+
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:41:23 +0430
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1136)
+  Rendered layout layouts/application.html.erb (Duration: 33.8ms | Allocations: 6841)
+Completed 200 OK in 41ms (Views: 38.6ms | ActiveRecord: 0.0ms | Allocations: 7591)
+
+
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:41:48 +0430
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1686)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 1775)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 2506)
+
+
+  
+ActionView::Template::Error (no implicit conversion of String into Hash):
+     8:           </div>
+     9:           <div class="col-md-6 mt-2">
+    10:             <%= form.label :text %>
+    11:             <%= form.text_area :text, col="10" %>
+    12: 
+    13:             <%= form.submit "Create Post", class:'btn btn-primary' %>
+    14:           </div>
+  
+app/views/posts/new.html.erb:11
+app/views/posts/new.html.erb:4
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:42:02 +0430
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1149)
+  Rendered layout layouts/application.html.erb (Duration: 33.9ms | Allocations: 6971)
+Completed 200 OK in 40ms (Views: 38.3ms | ActiveRecord: 0.0ms | Allocations: 7714)
+
+
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:42:12 +0430
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1174)
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | Allocations: 6877)
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 0.0ms | Allocations: 7620)
+
+
+Started GET "/users/1/posts/new" for 127.0.0.1 at 2023-04-07 23:42:25 +0430
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1156)
+  Rendered layout layouts/application.html.erb (Duration: 22.8ms | Allocations: 6859)
+Completed 200 OK in 27ms (Views: 25.0ms | ActiveRecord: 0.0ms | Allocations: 7602)
+
+

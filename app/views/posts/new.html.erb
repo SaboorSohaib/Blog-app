@@ -6,11 +6,11 @@
             <%= form.label :title %>
             <%= form.text_field :title %>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 mt-2">
             <%= form.label :text %>
-            <%= form.text_area :text %>
+            <%= form.text_area :text, col:"20" %>
 
-            <%= form.submit, class:'btn btn-primary' %>
+            <%= form.submit "Create Post", class:'btn btn-primary' %>
           </div>
         <% end %>
     </div>
