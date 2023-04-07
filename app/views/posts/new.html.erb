@@ -1,13 +1,17 @@
 <section>
     <h1>Create New Post</h1>
-    <%= form_with model: @post, url: user_posts_path, method: :post, scop: :post do |form| %>
+    <div class="row">
+        <%= form_with model: @post, url: user_posts_path, method: :post, scop: :post do |form| %>
+          <div class="col-md-6">
+            <%= form.label :title %>
+            <%= form.text_field :title %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :text %>
+            <%= form.text_area :text %>
 
-        <%= form.label :title %>
-        <%= form.text_field :title %>
-
-        <%= form.label :text %>
-        <%= form.text_area :text %>
-
-        <%= form.submit, class:'btn btn-primary' %>
-    <% end %>
+            <%= form.submit, class:'btn btn-primary' %>
+          </div>
+        <% end %>
+    </div>
 </section>
