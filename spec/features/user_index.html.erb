@@ -15,6 +15,13 @@ RSpec.describe 'users/index.html.erb', type: :feature do
       expect(page).to have_content(@user2.name)
     end
 
+    it 'dispalys user image' do
+      visit users_path
+      expect(page).to have_css("img[src='https://unsplash.com/photos/WNoLnJo7tS8']")
+      expect(page).to have_css("img[src='https://unsplash.com/photos/WNoLnJo7tS8']")
+    end
+
+    
     
 
     
