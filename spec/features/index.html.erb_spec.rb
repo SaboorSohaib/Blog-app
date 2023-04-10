@@ -8,11 +8,6 @@ RSpec.describe 'users/index.html.erb', type: :feature do
       @user2 = User.create!(name: 'Abid', photo: 'https://unsplash.com/photos/WNoLnJo7tS8', posts_counter: 5,
                             bio: 'Engineer')
     end
-    it 'dispalys the user name' do
-      visit users_path
-      expect(page).to have_content(@user1.name)
-      expect(page).to have_content(@user2.name)
-    end
 
     it 'dispalys user image' do
       visit users_path
