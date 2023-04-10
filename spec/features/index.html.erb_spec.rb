@@ -32,5 +32,11 @@ RSpec.describe 'users/index.html.erb', type: :feature do
       expect(page).to have_link(@user1.name, href: user_path(@user1))
       expect(page).to have_link(@user2.name, href: user_path(@user2))
     end
+
+    it 'when click on a user name and then redirected to user show page' do
+      visit users_path
+      click_link('Ali')
+      expect(page).to have_content('Ali')
+    end
   end
 end

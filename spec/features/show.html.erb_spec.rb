@@ -41,5 +41,19 @@ RSpec.describe 'users/show.html.rb', type: :feature do
       expect(page).to have_content(@post2.title)
       expect(page).to have_content(@post1.title)
     end
+
+    it 'display button to see all posts' do
+      expect(page).to have_link('See All Posts')
+    end
+
+    it 'click a user post and redirects to post show page' do
+      click_link @post1.title
+      expect(page).to have_current_path user_post_path(@user1, @post1)
+    end
+
+    it 'click see all posts and redirects to user posts index page' do
+      click_link 'See All Posts'
+      expect(page).to have_current_path user_posts_path(@user1)
+    end
   end
 end
