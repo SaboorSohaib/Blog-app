@@ -41,3 +41,5 @@ RSpec.describe 'users/show.html.rb', type: :feature do
       expect(page).to have_content(@post2.title)
       expect(page).to have_content(@post1.title)
     end
+  end
+end
