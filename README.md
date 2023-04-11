@@ -147,9 +147,9 @@ To run the project, execute the following command:
 
 👤 **Billy Mohajeri**
 
-- GitHub: [![@BillyMohajeri](https://img.shields.io/badge/-SaboorSohaib-white?logo=GitHub&logoColor=181717&style=plastic)](https://github.com/billymohajeri)
-- Twitter: [![@BillyMohajeri](https://img.shields.io/badge/-absaboorsohaib-blue?logo=Twitter&logoColor=skyBlue&style=plastic)](https://twitter.com/BillyMohajeri)
-- LinkedIn: [![@BillyMohajeri](https://img.shields.io/badge/-AbdulSaboorSohaib-white?logo=LinkedIn&logoColor=181717&style=plastic)](https://www.linkedin.com/in/billymohajeri)
+- GitHub: [@BillyMohajeri](https://github.com/billymohajeri)
+- Twitter: [@BillyMohajeri](https://twitter.com/BillyMohajeri)
+- LinkedIn: [@BillyMohajeri](https://www.linkedin.com/in/billymohajeri)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
