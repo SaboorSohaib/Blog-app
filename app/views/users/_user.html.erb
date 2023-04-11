@@ -1,12 +1,14 @@
 <section>
-  <main class="user-info">
+  <li class="user-card">
+    <div class="user-info-card">  
+        <div class="user-image">
+          <%= image_tag user.photo, alt: "#{user.name}-avatar", class: 'profile-image'%>
         <div>
-          <%= image_tag user.photo , height: 300 %>
-        <div>
-        <div>
+        <div class="user-info">
             <%= link_to  user.name, "/users/#{user.id}" %> <br>
             <span>Posts Counter:</span>
             <%= user.posts_counter %>
         </div>
-  </main>
+    </div>
+  </li>
 </section>
