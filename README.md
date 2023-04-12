@@ -145,6 +145,12 @@ To run the project, execute the following command:
 - Twitter: [![absaboorsohaib](https://img.shields.io/badge/-absaboorsohaib-blue?logo=Twitter&logoColor=skyBlue&style=plastic)](https://twitter.com/absaboorsohaib)
 - LinkedIn: [![abdul-saboor-sohaib](https://img.shields.io/badge/-AbdulSaboorSohaib-white?logo=LinkedIn&logoColor=181717&style=plastic)](https://www.linkedin.com/in/abdul-saboor-sohaib/)
 
+👤 **Billy Mohajeri**
+
+- GitHub: [@BillyMohajeri](https://github.com/billymohajeri)
+- Twitter: [@BillyMohajeri](https://twitter.com/BillyMohajeri)
+- LinkedIn: [@BillyMohajeri](https://www.linkedin.com/in/billymohajeri)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
