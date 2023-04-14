@@ -1,14 +1,8 @@
-<section>
-  <li class="user-card">
-    <div class="user-info-card">  
-        <div class="user-image">
-           <img src=<%= user.photo %> >
-        <div>
-        <div class="user-info">
-            <%= link_to  user.name, "/users/#{user.id}" %> <br>
-            <span>Posts Counter:</span>
-            <%= user.posts_counter %>
-        </div>
-    </div>
-  </li>
-</section>
+<div>
+  <div class="user-info">
+    <img src=<%= user.photo %> >
+    <%= link_to  user.name, "/users/#{user.id}" %> <br>
+    <span>Posts Counter:</span>
+    <%= user.posts_counter %>
+  </div>
+</div>

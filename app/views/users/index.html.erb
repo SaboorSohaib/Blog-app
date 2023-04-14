@@ -1,4 +1,4 @@
-<section class="user-section">
+<div class="d-flex flex-column justify-content-center">
 
   <% if user_signed_in? %>
     <%= button_to(
@@ -13,4 +13,4 @@
     <% else %>
       <a href="users/sign_in">Sign In</a>
     <% end %>
-</section>
+</div>
