@@ -18215,3 +18215,730 @@ Migrating to AddColumnToUsers (20230413175531)
   [1m[36mActiveRecord::InternalMetadata Load (73.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(5565347226186074040)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-04-14 21:42:06 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (47.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 75ms (ActiveRecord: 0.0ms | Allocations: 2156)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-14 21:42:08 +0430
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.4ms | Allocations: 820)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 100.6ms | Allocations: 3559)
+  Rendered layout layouts/application.html.erb (Duration: 824.2ms | Allocations: 45078)
+Completed 200 OK in 1058ms (Views: 874.5ms | ActiveRecord: 133.7ms | Allocations: 57146)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-04-14 21:42:17 +0430
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"heamt@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (67.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "heamt@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 629ms (ActiveRecord: 68.2ms | Allocations: 5517)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-14 21:42:17 +0430
+Processing by UsersController#index as TURBO_STREAM
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:10
+  Rendered users/_user.html.erb (Duration: 2.1ms | Allocations: 191)
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 29)
+  Rendered users/index.html.erb within layouts/application (Duration: 25.4ms | Allocations: 1617)
+  Rendered layout layouts/application.html.erb (Duration: 68.7ms | Allocations: 7180)
+Completed 200 OK in 83ms (Views: 71.5ms | ActiveRecord: 1.3ms | Allocations: 9261)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2023-04-14 21:42:20 +0430
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 31)
+  [1m[36mPost Load (33.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/users/show.html.erb:11
+  Rendered users/show.html.erb within layouts/application (Duration: 126.0ms | Allocations: 6857)
+  Rendered layout layouts/application.html.erb (Duration: 142.9ms | Allocations: 12335)
+Completed 200 OK in 170ms (Views: 106.9ms | ActiveRecord: 40.0ms | Allocations: 15159)
+
+
+Started GET "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:42:23 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 1.0ms | Allocations: 4131)
+
+
+  
+NoMethodError (undefined method `admin?' for #<User id: 2, name: "Hemat", photo: nil, bio: nil, posts_counter: 1, created_at: "2023-04-11 18:28:23.162390000 +0000", updated_at: "2023-04-12 07:39:25.084082000 +0000", email: "heamt@gmail.com", role: nil>):
+  
+app/models/ability.rb:5:in `initialize'
+Started GET "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:43:50 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (71.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 5]]
+  ↳ app/views/posts/show.html.erb:10
+  Rendered posts/show.html.erb within layouts/application (Duration: 123.0ms | Allocations: 3302)
+  Rendered layout layouts/application.html.erb (Duration: 154.5ms | Allocations: 19869)
+Completed 200 OK in 407ms (Views: 85.1ms | ActiveRecord: 91.2ms | Allocations: 38974)
+
+
+Started DELETE "/users/2/posts/10/comments" for 127.0.0.1 at 2023-04-14 21:43:55 +0430
+  
+ActionController::RoutingError (No route matches [DELETE] "/users/2/posts/10/comments"):
+  
+Started DELETE "/users/2/posts/10/comments" for 127.0.0.1 at 2023-04-14 21:45:08 +0430
+  
+ActionController::RoutingError (No route matches [DELETE] "/users/2/posts/10/comments"):
+  
+Started GET "/users/2" for 127.0.0.1 at 2023-04-14 21:45:55 +0430
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.6ms | Allocations: 53)
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/users/show.html.erb:11
+  Rendered users/show.html.erb within layouts/application (Duration: 31.6ms | Allocations: 4580)
+  Rendered layout layouts/application.html.erb (Duration: 74.4ms | Allocations: 21164)
+Completed 200 OK in 127ms (Views: 68.8ms | ActiveRecord: 19.6ms | Allocations: 29248)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2023-04-14 21:45:57 +0430
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 31)
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/users/show.html.erb:11
+  Rendered users/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 907)
+  Rendered layout layouts/application.html.erb (Duration: 30.6ms | Allocations: 6361)
+Completed 200 OK in 47ms (Views: 31.6ms | ActiveRecord: 5.0ms | Allocations: 8503)
+
+
+Started GET "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:46:01 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 5]]
+  ↳ app/views/posts/show.html.erb:10
+  Rendered posts/show.html.erb within layouts/application (Duration: 9.4ms | Allocations: 2502)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | Allocations: 8033)
+Completed 200 OK in 69ms (Views: 26.7ms | ActiveRecord: 9.2ms | Allocations: 15983)
+
+
+Started DELETE "/users/2/posts/10/comments" for 127.0.0.1 at 2023-04-14 21:46:06 +0430
+  
+ActionController::RoutingError (No route matches [DELETE] "/users/2/posts/10/comments"):
+  
+Started GET "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:47:03 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 5]]
+  ↳ app/views/posts/show.html.erb:10
+  Rendered posts/show.html.erb within layouts/application (Duration: 10.0ms | Allocations: 2127)
+  Rendered layout layouts/application.html.erb (Duration: 32.2ms | Allocations: 7988)
+Completed 200 OK in 59ms (Views: 35.3ms | ActiveRecord: 2.3ms | Allocations: 12422)
+
+
+Started GET "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:47:06 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 5]]
+  ↳ app/views/posts/show.html.erb:10
+  Rendered posts/show.html.erb within layouts/application (Duration: 10.3ms | Allocations: 1637)
+  Rendered layout layouts/application.html.erb (Duration: 35.3ms | Allocations: 7091)
+Completed 200 OK in 68ms (Views: 36.1ms | ActiveRecord: 3.9ms | Allocations: 11060)
+
+
+Started DELETE "/users/2/posts/10/comments/10" for 127.0.0.1 at 2023-04-14 21:47:08 +0430
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_id"=>"2", "post_id"=>"10", "id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:16:in `destroy'
+Completed 404 Not Found in 13ms (ActiveRecord: 1.1ms | Allocations: 2861)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=10):
+  
+app/controllers/comments_controller.rb:16:in `destroy'
+Started GET "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:49:32 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (2.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 5]]
+  ↳ app/views/posts/show.html.erb:10
+  Rendered posts/show.html.erb within layouts/application (Duration: 14.2ms | Allocations: 1637)
+  Rendered layout layouts/application.html.erb (Duration: 31.9ms | Allocations: 7210)
+Completed 200 OK in 50ms (Views: 30.5ms | ActiveRecord: 3.5ms | Allocations: 11153)
+
+
+Started DELETE "/users/2/posts/10/comments/10" for 127.0.0.1 at 2023-04-14 21:49:34 +0430
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_id"=>"2", "post_id"=>"10", "id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:16:in `destroy'
+Completed 404 Not Found in 11ms (ActiveRecord: 0.8ms | Allocations: 2351)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=10):
+  
+app/controllers/comments_controller.rb:16:in `destroy'
+Started DELETE "/users/2/posts/10/comments/10" for 127.0.0.1 at 2023-04-14 21:51:18 +0430
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_id"=>"2", "post_id"=>"10", "id"=>"10"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Delete All (8.7ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/comments_controller.rb:16:in `destroy'
+Redirected to http://127.0.0.1:3000/users/2/posts/10
+Completed 302 Found in 61ms (ActiveRecord: 24.3ms | Allocations: 8639)
+
+
+Started GET "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:51:18 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 5]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered posts/show.html.erb within layouts/application (Duration: 11.9ms | Allocations: 3343)
+  Rendered layout layouts/application.html.erb (Duration: 55.6ms | Allocations: 20124)
+Completed 200 OK in 105ms (Views: 58.8ms | ActiveRecord: 7.0ms | Allocations: 31151)
+
+
+Started DELETE "/users/2/posts/10/comments/10" for 127.0.0.1 at 2023-04-14 21:51:21 +0430
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_id"=>"2", "post_id"=>"10", "id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Delete All (0.7ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/comments_controller.rb:16:in `destroy'
+Redirected to http://127.0.0.1:3000/users/2/posts/10
+Completed 302 Found in 11ms (ActiveRecord: 1.0ms | Allocations: 2000)
+
+
+Started DELETE "/users/2/posts/10/comments/10" for 127.0.0.1 at 2023-04-14 21:51:21 +0430
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_id"=>"2", "post_id"=>"10", "id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Delete All (0.8ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/comments_controller.rb:16:in `destroy'
+Redirected to http://127.0.0.1:3000/users/2/posts/10
+Completed 302 Found in 11ms (ActiveRecord: 1.2ms | Allocations: 2009)
+
+
+Started GET "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:51:21 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 5]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered posts/show.html.erb within layouts/application (Duration: 10.2ms | Allocations: 1974)
+  Rendered layout layouts/application.html.erb (Duration: 27.8ms | Allocations: 7547)
+Completed 200 OK in 47ms (Views: 27.8ms | ActiveRecord: 2.5ms | Allocations: 11496)
+
+
+Started DELETE "/users/2/posts/10/comments/10" for 127.0.0.1 at 2023-04-14 21:51:23 +0430
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_id"=>"2", "post_id"=>"10", "id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Delete All (0.7ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/comments_controller.rb:16:in `destroy'
+Redirected to http://127.0.0.1:3000/users/2/posts/10
+Completed 302 Found in 13ms (ActiveRecord: 1.1ms | Allocations: 2006)
+
+
+Started GET "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:51:23 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 5]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered posts/show.html.erb within layouts/application (Duration: 9.8ms | Allocations: 1974)
+  Rendered layout layouts/application.html.erb (Duration: 30.7ms | Allocations: 7430)
+Completed 200 OK in 57ms (Views: 32.4ms | ActiveRecord: 2.1ms | Allocations: 11366)
+
+
+Started DELETE "/users/2/posts.10" for 127.0.0.1 at 2023-04-14 21:51:25 +0430
+  
+ActionController::RoutingError (No route matches [DELETE] "/users/2/posts.10"):
+  
+Started DELETE "/users/2/posts.10" for 127.0.0.1 at 2023-04-14 21:52:25 +0430
+  
+ActionController::RoutingError (No route matches [DELETE] "/users/2/posts.10"):
+  
+Started GET "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:52:29 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 5]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered posts/show.html.erb within layouts/application (Duration: 13.1ms | Allocations: 2503)
+  Rendered layout layouts/application.html.erb (Duration: 35.7ms | Allocations: 8365)
+Completed 200 OK in 60ms (Views: 40.2ms | ActiveRecord: 1.6ms | Allocations: 12768)
+
+
+Started DELETE "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:52:32 +0430
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:30:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+Started DELETE "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:52:32 +0430
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:30:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+  [1m[36mPost Destroy (241.8ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 10]]
+  [1m[36mPost Destroy (102.5ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+Completed 500 Internal Server Error in 269ms (ActiveRecord: 243.8ms | Allocations: 15379)
+
+
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "posts" violates foreign key constraint "fk_rails_2fd19c0db7" on table "comments"
+DETAIL:  Key (id)=(10) is still referenced from table "comments".
+):
+  
+app/controllers/posts_controller.rb:31:in `destroy'
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+Completed 500 Internal Server Error in 455ms (ActiveRecord: 118.5ms | Allocations: 139876)
+
+
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "posts" violates foreign key constraint "fk_rails_2fd19c0db7" on table "comments"
+DETAIL:  Key (id)=(10) is still referenced from table "comments".
+):
+  
+app/controllers/posts_controller.rb:31:in `destroy'
+Started DELETE "/users/2/posts/10/comments/10" for 127.0.0.1 at 2023-04-14 21:52:51 +0430
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_id"=>"2", "post_id"=>"10", "id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Delete All (4.3ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/comments_controller.rb:16:in `destroy'
+Redirected to http://127.0.0.1:3000/users/2/posts/10
+Completed 302 Found in 15ms (ActiveRecord: 4.8ms | Allocations: 2015)
+
+
+Started GET "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:52:51 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 5]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered posts/show.html.erb within layouts/application (Duration: 9.3ms | Allocations: 1954)
+  Rendered layout layouts/application.html.erb (Duration: 30.4ms | Allocations: 7527)
+Completed 200 OK in 59ms (Views: 31.1ms | ActiveRecord: 3.3ms | Allocations: 11474)
+
+
+Started DELETE "/users/2/posts/10/comments/10" for 127.0.0.1 at 2023-04-14 21:52:53 +0430
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_id"=>"2", "post_id"=>"10", "id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Delete All (1.5ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/comments_controller.rb:16:in `destroy'
+Redirected to http://127.0.0.1:3000/users/2/posts/10
+Completed 302 Found in 12ms (ActiveRecord: 1.9ms | Allocations: 2015)
+
+
+Started GET "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:52:53 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 5]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered posts/show.html.erb within layouts/application (Duration: 11.1ms | Allocations: 1954)
+  Rendered layout layouts/application.html.erb (Duration: 33.8ms | Allocations: 7474)
+Completed 200 OK in 53ms (Views: 33.7ms | ActiveRecord: 2.6ms | Allocations: 11421)
+
+
+Started GET "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:53:29 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1477)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 1566)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 1.5ms | Allocations: 5982)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <section>
+  <main class="post">
+   <div>
+      <%= @post.title%> By <%= @user.name %>
+      <div><%= @post.text %></div>
+      <div>Comments: <%= @post.comments_counter %></div>
+      <div>Likes: <%= @post.likes_counter%></div>
+      <%if can? :destroy, @post%>
+        <%= button_to "Delete A Post", user_post_path(@post.author_id, @post.id), method: :delete, data: {turbo: false}%>
+      <%end%>
+   </div>
+   <div>
+      <% @post.most_recent_comments.each do |comment| %>
+                <div><%= comment.text %></div>
+            <%if can? :destroy, comment%>
+             <%= button_to "Delete Comment", user_post_comment_path(post_id: @post.id, comment), method: :delete, data: {turbo: false}%>
+            <%end%>
+      <% end %>
+   </div>
+
+   <div class="container">
+      <%= form_with model: @comment, url: user_post_comments_path(post_id: @post.id), method: :post, scop: :post do |f| %>
+       <div class="comment-section">
+         <%= f.text_area :text, placeholder: "Add Comment" %>
+       <br/>
+          <%= f.submit "Comment", class:'btn btn-primary' %>
+       </div>
+      <% end %>
+   </div>
+
+   <div>
+      <%= form_with model: @like, url: user_post_likes_path(post_id: @post.id), method: :post, scop: :post do |f| %>
+          <%= f.submit "Like", class:'btn btn-primary' %>
+      <% end %>
+   </div>
+  </main>
+<section>
+
+
+):
+1:    <section>
+2:      <main class="post">
+3:       <div>
+4:          <%= @post.title%> By <%= @user.name %>
+5:          <div><%= @post.text %></div>
+6:          <div>Comments: <%= @post.comments_counter %></div>
+7:          <div>Likes: <%= @post.likes_counter%></div>
+8:          <%if can? :destroy, @post%>
+9:            <%= button_to "Delete A Post", user_post_path(@post.author_id, @post.id), method: :delete, data: {turbo: false}%>
+10:          <%end%>
+11:       </div>
+12:       <div>
+13:          <% @post.most_recent_comments.each do |comment| %>
+14:                    <div><%= comment.text %></div>
+15:                <%if can? :destroy, comment%>
+16:                 <%= button_to "Delete Comment", user_post_comment_path(post_id: @post.id, comment), method: :delete, data: {turbo: false}%>
+17:                <%end%>
+18:          <% end %>
+19:       </div>
+20:    
+21:       <div class="container">
+22:          <%= form_with model: @comment, url: user_post_comments_path(post_id: @post.id), method: :post, scop: :post do |f| %>
+23:           <div class="comment-section">
+24:             <%= f.text_area :text, placeholder: "Add Comment" %>
+25:           <br/>
+26:              <%= f.submit "Comment", class:'btn btn-primary' %>
+27:           </div>
+28:          <% end %>
+29:       </div>
+30:    
+31:       <div>
+32:          <%= form_with model: @like, url: user_post_likes_path(post_id: @post.id), method: :post, scop: :post do |f| %>
+33:              <%= f.submit "Like", class:'btn btn-primary' %>
+34:          <% end %>
+35:       </div>
+36:      </main>
+37:    <section>
+  
+app/views/posts/show.html.erb:16: syntax error, unexpected ')', expecting =>
+app/views/posts/show.html.erb:16: syntax error, unexpected ')', expecting =>
+app/views/posts/show.html.erb:16: syntax error, unexpected ')', expecting =>
+app/views/posts/show.html.erb:16: syntax error, unexpected ')', expecting =>
+app/views/posts/show.html.erb:16: syntax error, unexpected ')', expecting =>
+app/views/posts/show.html.erb:16: syntax error, unexpected ')', expecting =>
+Started GET "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:54:38 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (2.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 5]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered posts/show.html.erb within layouts/application (Duration: 16.1ms | Allocations: 2487)
+  Rendered layout layouts/application.html.erb (Duration: 39.2ms | Allocations: 8348)
+Completed 200 OK in 71ms (Views: 41.5ms | ActiveRecord: 5.4ms | Allocations: 12786)
+
+
+Started DELETE "/users/2/posts/10/comments/13" for 127.0.0.1 at 2023-04-14 21:54:40 +0430
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_id"=>"2", "post_id"=>"10", "id"=>"13"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Delete All (18.8ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 13]]
+  ↳ app/controllers/comments_controller.rb:16:in `destroy'
+Redirected to http://127.0.0.1:3000/users/2/posts/10
+Completed 302 Found in 31ms (ActiveRecord: 19.2ms | Allocations: 2021)
+
+
+Started GET "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:54:40 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (3.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 5]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered posts/show.html.erb within layouts/application (Duration: 7.4ms | Allocations: 1596)
+  Rendered layout layouts/application.html.erb (Duration: 24.9ms | Allocations: 7050)
+Completed 200 OK in 55ms (Views: 26.1ms | ActiveRecord: 5.1ms | Allocations: 10995)
+
+
+Started DELETE "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:54:42 +0430
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (8.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:30:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+  [1m[36mPost Destroy (78.8ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+Completed 500 Internal Server Error in 110ms (ActiveRecord: 88.2ms | Allocations: 5638)
+
+
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "posts" violates foreign key constraint "fk_rails_87a8aac469" on table "likes"
+DETAIL:  Key (id)=(10) is still referenced from table "likes".
+):
+  
+app/controllers/posts_controller.rb:31:in `destroy'
+Started DELETE "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:54:50 +0430
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:30:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+  [1m[36mPost Destroy (3.3ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 5.7ms | Allocations: 5635)
+
+
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "posts" violates foreign key constraint "fk_rails_87a8aac469" on table "likes"
+DETAIL:  Key (id)=(10) is still referenced from table "likes".
+):
+  
+app/controllers/posts_controller.rb:31:in `destroy'
+Started DELETE "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:54:59 +0430
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (3.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:30:in `destroy'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+  [1m[36mPost Destroy (6.7ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/posts_controller.rb:31:in `destroy'
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 14.4ms | Allocations: 5635)
+
+
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "posts" violates foreign key constraint "fk_rails_87a8aac469" on table "likes"
+DETAIL:  Key (id)=(10) is still referenced from table "likes".
+):
+  
+app/controllers/posts_controller.rb:31:in `destroy'
+Started DELETE "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:55:38 +0430
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Delete All (2.1ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/posts_controller.rb:30:in `destroy'
+Completed 500 Internal Server Error in 87ms (ActiveRecord: 23.7ms | Allocations: 14242)
+
+
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "posts" violates foreign key constraint "fk_rails_87a8aac469" on table "likes"
+DETAIL:  Key (id)=(10) is still referenced from table "likes".
+):
+  
+app/controllers/posts_controller.rb:30:in `destroy'
+Started GET "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:55:44 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 5]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered posts/show.html.erb within layouts/application (Duration: 8.8ms | Allocations: 1778)
+  Rendered layout layouts/application.html.erb (Duration: 46.0ms | Allocations: 18345)
+Completed 200 OK in 88ms (Views: 48.5ms | ActiveRecord: 8.4ms | Allocations: 25360)
+
+
+Started DELETE "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:55:47 +0430
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Delete All (5.8ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/posts_controller.rb:30:in `destroy'
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 6.9ms | Allocations: 3955)
+
+
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "posts" violates foreign key constraint "fk_rails_87a8aac469" on table "likes"
+DETAIL:  Key (id)=(10) is still referenced from table "likes".
+):
+  
+app/controllers/posts_controller.rb:30:in `destroy'
+Started GET "/users/2/posts/10" for 127.0.0.1 at 2023-04-14 21:56:09 +0430
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."created_at" DESC LIMIT $2[0m  [["post_id", 10], ["LIMIT", 5]]
+  ↳ app/views/posts/show.html.erb:13
+  Rendered posts/show.html.erb within layouts/application (Duration: 9.9ms | Allocations: 1596)
+  Rendered layout layouts/application.html.erb (Duration: 31.1ms | Allocations: 7169)
+Completed 200 OK in 55ms (Views: 32.3ms | ActiveRecord: 2.4ms | Allocations: 11113)
+
+
