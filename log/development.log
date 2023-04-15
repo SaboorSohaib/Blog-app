@@ -19155,3 +19155,79 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 1127ms (Views: 932.1ms | ActiveRecord: 116.8ms | Allocations: 57156)
 
 
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-15 22:23:55 +0430
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.7ms | Allocations: 820)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 18.5ms | Allocations: 4913)
+  Rendered layout layouts/application.html.erb (Duration: 149.6ms | Allocations: 46525)
+Completed 200 OK in 211ms (Views: 156.6ms | ActiveRecord: 7.8ms | Allocations: 59969)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-15 22:23:58 +0430
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 187)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1296)
+  Rendered layout layouts/application.html.erb (Duration: 32.0ms | Allocations: 6751)
+Completed 200 OK in 37ms (Views: 33.3ms | ActiveRecord: 0.0ms | Allocations: 7388)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-15 22:24:06 +0430
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 401)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-15 22:24:06 +0430
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 187)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1296)
+  Rendered layout layouts/application.html.erb (Duration: 33.3ms | Allocations: 6756)
+Completed 200 OK in 37ms (Views: 34.7ms | ActiveRecord: 0.0ms | Allocations: 7412)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-15 22:24:51 +0430
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.4ms | Allocations: 647)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 13.7ms | Allocations: 2190)
+  Rendered layout layouts/application.html.erb (Duration: 32.9ms | Allocations: 7933)
+Completed 200 OK in 42ms (Views: 39.1ms | ActiveRecord: 0.0ms | Allocations: 9143)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-15 22:25:00 +0430
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 282)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-15 22:25:00 +0430
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 187)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 1296)
+  Rendered layout layouts/application.html.erb (Duration: 29.9ms | Allocations: 6751)
+Completed 200 OK in 34ms (Views: 31.6ms | ActiveRecord: 0.0ms | Allocations: 7399)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-15 22:26:21 +0430
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 271)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-04-15 22:26:21 +0430
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.8ms | Allocations: 647)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 10.5ms | Allocations: 2192)
+  Rendered layout layouts/application.html.erb (Duration: 34.4ms | Allocations: 8057)
+Completed 200 OK in 42ms (Views: 39.1ms | ActiveRecord: 0.0ms | Allocations: 9271)
+
+
