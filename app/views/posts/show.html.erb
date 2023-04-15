@@ -13,7 +13,7 @@
       <% @post.most_recent_comments.each do |comment| %>
                 <div><%= comment.text %></div>
             <%if can? :destroy, comment%>
-             <%= button_to "Delete Comment", user_post_comment_path(comment.author_id, comment.post_id, comment), method: :delete, data: {turbo: false}%>
+             <%= button_to "Delete Comment", class:'btn btn-primary', user_post_comment_path(comment.author_id, comment.post_id, comment), method: :delete, data: {turbo: false}%>
             <%end%>
       <% end %>
    </div>
