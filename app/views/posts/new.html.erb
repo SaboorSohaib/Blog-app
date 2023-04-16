@@ -4,11 +4,11 @@
         <%= form_with model: @post, url: user_posts_path, method: :post, scop: :post do |form| %>
           <div class="col-md-6">
             <%= form.label :title %>
-            <%= form.text_field :title %>
+            <%= form.text_field :title, class: 'form-control' %>
           </div>
           <div class="col-md-6 mt-2">
             <%= form.label :text %>
-            <%= form.text_area :text, column: 20 %><br>
+            <%= form.text_area :text, class: 'form-control' %><br>
 
             <%= form.submit "Create Post", class:'btn btn-primary mx-4' %>
           </div>
