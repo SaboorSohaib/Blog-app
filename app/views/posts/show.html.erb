@@ -6,14 +6,14 @@
       <div>Comments: <%= @post.comments_counter %></div>
       <div>Likes: <%= @post.likes_counter%></div>
       <%if can? :destroy, @post%>
-        <%= button_to "Delete A Post", class:'btn btn-primary', user_post_path(@post.author_id, @post.id), method: :delete, data: {turbo: false}%>
+        <%= button_to "Delete A Post", user_post_path(@post.author_id, @post.id), method: :delete, data: {turbo: false}, class:'btn btn-primary' %>
       <%end%>
    </div>
    <div>
       <% @post.most_recent_comments.each do |comment| %>
                 <div><%= comment.text %></div>
             <%if can? :destroy, comment%>
-             <%= button_to "Delete Comment", class:'btn btn-primary', user_post_comment_path(comment.author_id, comment.post_id, comment), method: :delete, data: {turbo: false}%>
+             <%= button_to "Delete Comment", user_post_comment_path(comment.author_id, comment.post_id, comment), method: :delete, data: {turbo: false}, class:'btn btn-primary' %>
             <%end%>
       <% end %>
    </div>
