@@ -6,7 +6,7 @@
       <div>Comments: <%= @post.comments_counter %></div>
       <div>Likes: <%= @post.likes_counter%></div>
       <%if can? :destroy, @post%>
-        <%= button_to "Delete A Post", user_post_path(@post.author_id, @post.id), method: :delete, data: {turbo: false}, class:'btn btn-primary' %>
+        <%= button_to "Delete A Post", user_post_path(@post.author_id, @post.id), method: :delete, data: {turbo: false}, class:'btn btn-danger' %>
       <%end%>
    </div>
    <div>
