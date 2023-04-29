@@ -13,9 +13,10 @@
     <%= f.text_field :name, autocomplete: "name", class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :role %><br />
-    <%= f.text_field :role, autocomplete: "phone", class: 'form-control' %>
+  <div class="mb-3">
+    <label class="btn btn-primary">
+      Update Image <%= f.file_field :photo, style: 'display:none;' %>
+    </label>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
