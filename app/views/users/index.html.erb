@@ -8,7 +8,14 @@
       class: "btn btn-primary"
     )%>
       <% @users.each do |user| %>
-        <%= render  "user", user: user %>
+        <div>
+          <% if user.photo.attached? %>
+            <img src="<%=(url_for(user.photo)) %>", style="width:60px; height:60px;">
+          <% end %>
+        </div>
+        <%= link_to  user.name, "/users/#{user.id}" %> <br>
+        <span>Posts Counter:</span>
+        <%= user.posts_counter %>
       <% end %>
     <% else %>
       <a href="users/sign_in">Sign In</a>
