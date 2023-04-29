@@ -10,7 +10,7 @@
       <% @users.each do |user| %>
         <div>
           <% if user.photo.attached? %>
-            <img src="<%=(url_for(user.photo)) %>", alt="user-image", style="width:60px; height:60px;">
+            <img src="<%=(url_for(user.photo)) %>", style="width:60px; height:60px;">
           <% end %>
         </div>
         <%= link_to  user.name, "/users/#{user.id}" %> <br>
